@@ -9,7 +9,7 @@ part 'note_model.g.dart';
 class NoteModel with _$NoteModel {
   const factory NoteModel({
     required int id,
-    required String note,
+    @JsonKey(name: 'todo') required String note,
     required bool completed,
     required int userId,
     @Default(false) bool isDeleted,

@@ -6,6 +6,7 @@ part 'note_list_model.g.dart';
 
 @JsonSerializable(createToJson: false)
 class NoteListModel {
+  @JsonKey(name: 'todos')
   final List<NoteModel> notes;
 
   const NoteListModel({required this.notes});
