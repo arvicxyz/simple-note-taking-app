@@ -31,7 +31,7 @@ Future<void> main() async {
 
 Future<AppFlavor> setupFlavorConfig() async {
   // TODO: Change when publishing to production
-  const defaultEnv = "dev";
+  const defaultEnv = 'dev';
   const flavor = defaultEnv;
   //final flavor = await const MethodChannel('flavor').invokeMethod('getFlavor') ?? defaultEnv;
 
@@ -52,15 +52,13 @@ class NoteApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       onGenerateTitle: (context) => AppLocale.of(context).appTitle,
       localizationsDelegates: AppLocale.localizationsDelegates,
       supportedLocales: AppLocale.supportedLocales,
       theme: AppTheme.simpleTheme,
-      home: Container(
-        color: Colors.blue,
-      ),
+      routerConfig: AppRoute.routerConfig,
     );
   }
 }
