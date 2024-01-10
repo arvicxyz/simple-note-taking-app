@@ -17,11 +17,12 @@ import 'package:logger/logger.dart' as _i4;
 import 'package:shared_preferences/shared_preferences.dart' as _i6;
 
 import '../core/network/network_info.dart' as _i5;
-import '../features/note/data/data_sources/note_remote_source.dart' as _i10;
+import '../features/note/data/data_sources/note_local_source.dart' as _i10;
+import '../features/note/data/data_sources/note_remote_source.dart' as _i11;
 import '../features/note/data/data_sources/services/note_api_service.dart'
     as _i9;
 import 'app_config.dart' as _i7;
-import 'register_module.dart' as _i11;
+import 'register_module.dart' as _i12;
 
 // initializes the registration of main-scope dependencies inside of GetIt
 Future<_i1.GetIt> init(
@@ -61,9 +62,11 @@ Future<_i1.GetIt> init(
         gh<_i8.Dio>(),
         gh<_i7.AppConfig>(),
       ));
-  gh.lazySingleton<_i10.NoteRemoteSource>(
-      () => _i10.NoteRemoteSource(noteApiService: gh<_i9.NoteApiService>()));
+  gh.lazySingleton<_i10.NoteLocalSource>(() =>
+      _i10.NoteLocalSource(sharedPreferences: gh<_i6.SharedPreferences>()));
+  gh.lazySingleton<_i11.NoteRemoteSource>(
+      () => _i11.NoteRemoteSource(noteApiService: gh<_i9.NoteApiService>()));
   return getIt;
 }
 
-class _$RegisterModule extends _i11.RegisterModule {}
+class _$RegisterModule extends _i12.RegisterModule {}
