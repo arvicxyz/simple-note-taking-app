@@ -21,7 +21,7 @@ dependencies:
   json_annotation: ^4.8.1
   get_it: ^7.6.4
   injectable: ^2.3.2
-  http: ^1.1.2
+  dio: ^5.4.0
   retrofit: ^4.0.3
   shared_preferences: ^2.2.2
   internet_connection_checker: ^1.0.0+1
