@@ -9,7 +9,7 @@ part of 'note_model.dart';
 _$NoteModelImpl _$$NoteModelImplFromJson(Map<String, dynamic> json) =>
     _$NoteModelImpl(
       id: json['id'] as int,
-      note: json['note'] as String,
+      note: json['todo'] as String,
       completed: json['completed'] as bool,
       userId: json['userId'] as int,
       isDeleted: json['isDeleted'] as bool? ?? false,
@@ -21,7 +21,7 @@ _$NoteModelImpl _$$NoteModelImplFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$$NoteModelImplToJson(_$NoteModelImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'note': instance.note,
+      'todo': instance.note,
       'completed': instance.completed,
       'userId': instance.userId,
       'isDeleted': instance.isDeleted,

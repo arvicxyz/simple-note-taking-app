@@ -21,6 +21,7 @@ NoteModel _$NoteModelFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$NoteModel {
   int get id => throw _privateConstructorUsedError;
+  @JsonKey(name: 'todo')
   String get note => throw _privateConstructorUsedError;
   bool get completed => throw _privateConstructorUsedError;
   int get userId => throw _privateConstructorUsedError;
@@ -40,7 +41,7 @@ abstract class $NoteModelCopyWith<$Res> {
   @useResult
   $Res call(
       {int id,
-      String note,
+      @JsonKey(name: 'todo') String note,
       bool completed,
       int userId,
       bool isDeleted,
@@ -106,7 +107,7 @@ abstract class _$$NoteModelImplCopyWith<$Res>
   @useResult
   $Res call(
       {int id,
-      String note,
+      @JsonKey(name: 'todo') String note,
       bool completed,
       int userId,
       bool isDeleted,
@@ -165,7 +166,7 @@ class __$$NoteModelImplCopyWithImpl<$Res>
 class _$NoteModelImpl implements _NoteModel {
   const _$NoteModelImpl(
       {required this.id,
-      required this.note,
+      @JsonKey(name: 'todo') required this.note,
       required this.completed,
       required this.userId,
       this.isDeleted = false,
@@ -177,6 +178,7 @@ class _$NoteModelImpl implements _NoteModel {
   @override
   final int id;
   @override
+  @JsonKey(name: 'todo')
   final String note;
   @override
   final bool completed;
@@ -231,7 +233,7 @@ class _$NoteModelImpl implements _NoteModel {
 abstract class _NoteModel implements NoteModel {
   const factory _NoteModel(
       {required final int id,
-      required final String note,
+      @JsonKey(name: 'todo') required final String note,
       required final bool completed,
       required final int userId,
       final bool isDeleted,
@@ -243,6 +245,7 @@ abstract class _NoteModel implements NoteModel {
   @override
   int get id;
   @override
+  @JsonKey(name: 'todo')
   String get note;
   @override
   bool get completed;

@@ -8,7 +8,7 @@ part of 'note_list_model.dart';
 
 NoteListModel _$NoteListModelFromJson(Map<String, dynamic> json) =>
     NoteListModel(
-      notes: (json['notes'] as List<dynamic>)
+      notes: (json['todos'] as List<dynamic>)
           .map((e) => NoteModel.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
