@@ -2,7 +2,7 @@ import 'package:dio/dio.dart' hide Headers;
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
 
-import '../../../../../config/app_config.dart';
+import '../../../../../config/_config.dart';
 import '../../models/_models.dart';
 
 part 'note_api_service.g.dart';

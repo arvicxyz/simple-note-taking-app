@@ -1,6 +1,6 @@
 import 'package:injectable/injectable.dart';
 
-import 'services/note_api_service.dart';
+import 'services/_services.dart';
 
 @lazySingleton
 abstract class NoteRemoteSource {
