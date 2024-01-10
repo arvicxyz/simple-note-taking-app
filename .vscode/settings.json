@@ -1,5 +1,15 @@
 {
     "dart.flutterSdkPath": ".fvm/flutter_sdk",
+    "dart.lineLength": 100,
+    "[dart]": {
+        "editor.rulers": [
+            100
+        ],
+        "editor.tabSize": 2,
+        "editor.insertSpaces": true,
+        "editor.detectIndentation": false,
+        "editor.suggest.insertMode": "insert"
+    },
     "search.exclude": {
         "**/.fvm": true
     },
