@@ -57,10 +57,7 @@ class NoteApp extends StatelessWidget {
       onGenerateTitle: (context) => AppLocale.of(context).appTitle,
       localizationsDelegates: AppLocale.localizationsDelegates,
       supportedLocales: AppLocale.supportedLocales,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
-        useMaterial3: false,
-      ),
+      theme: AppTheme.simpleTheme,
       home: Container(
         color: Colors.blue,
       ),

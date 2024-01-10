@@ -98,3 +98,14 @@ flutter_gen:
       style: dot-delimiter
     exclude:
       # - Nothing to exclude
+  
+  colors:
+    enabled: true
+    outputs:
+      class_name: AppColors
+      package_parameter_enabled: false
+      style: dot-delimiter
+    exclude:
+      # - Nothing to exclude
+    inputs:
+      - assets/colors/colors.xml

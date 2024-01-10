@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Brand Colors -->
+    <color name="primary_color">#A792F9</color>
+    <color name="secondary_color">#FAF1F1</color>
+    <color name="accent_color">#2F1A1A</color>
+    <!-- Text Colors -->
+    <color name="primary_text_color">#201E20</color>
+    <color name="secondary_text_color">#ADB5BD</color>
+    <color name="tertiary_text_color">#FFFFFF</color>
+    <!-- Widget Colors -->
+    <color name="button_color">#2F1A1A</color>
+    <color name="text_field_color">#F7F7FC</color>
+</resources>
