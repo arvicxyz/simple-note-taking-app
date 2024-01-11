@@ -17,11 +17,7 @@ class NoteListView extends StatelessWidget {
       appBar: MaterialAppBar(
         title: Text(
           AppLocale.of(context).appTitle,
-          style: const TextStyle(
-            color: AppColors.primaryTextColor,
-            fontWeight: FontWeight.bold,
-            fontSize: 24,
-          ),
+          style: AppStyles.appBarTitleTextStyle,
         ),
         leading: const SizedBox.shrink(),
       ),
@@ -57,51 +53,55 @@ class NoteListView extends StatelessWidget {
                           itemCount: entityList.length,
                           itemBuilder: (context, index) {
                             final item = entityList[index];
-                            return Dismissible(
-                              key: UniqueKey(),
-                              direction: DismissDirection.horizontal,
-                              onDismissed: (direction) {
-                                if (direction == DismissDirection.endToStart) {
-                                  context.read<NoteBloc>().add(NoteEvent.delete(id: item.id));
-                                }
-                              },
-                              confirmDismiss: (direction) async {
-                                if (direction == DismissDirection.endToStart) {
-                                  return true;
-                                }
-                                return false;
-                              },
-                              background: Padding(
-                                padding: const EdgeInsets.all(16),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.end,
-                                  children: [
-                                    const Icon(
-                                      Icons.keyboard_double_arrow_left_outlined,
-                                      color: Colors.redAccent,
-                                    ),
-                                    Text(
-                                      AppLocale.of(context).delete,
-                                      style: const TextStyle(
-                                        color: Colors.redAccent,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                  ],
-                                ),
+                            return InkWell(
+                              onTap: () => context.pushNamed(
+                                AppRoute.noteDetailsRoute,
+                                pathParameters: {'noteId': item.id.toString()},
                               ),
-                              child: Card(
-                                margin: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
-                                color: AppColors.primaryColor,
-                                child: ListTile(
-                                  contentPadding: const EdgeInsets.symmetric(
-                                    vertical: 4,
-                                    horizontal: 16,
+                              child: Dismissible(
+                                key: UniqueKey(),
+                                direction: DismissDirection.horizontal,
+                                onDismissed: (direction) {
+                                  if (direction == DismissDirection.endToStart) {
+                                    context.read<NoteBloc>().add(NoteEvent.delete(id: item.id));
+                                  }
+                                },
+                                confirmDismiss: (direction) async {
+                                  if (direction == DismissDirection.endToStart) {
+                                    return true;
+                                  }
+                                  return false;
+                                },
+                                background: Padding(
+                                  padding: const EdgeInsets.all(16),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.end,
+                                    children: [
+                                      const Icon(
+                                        Icons.keyboard_double_arrow_left_outlined,
+                                        color: Colors.redAccent,
+                                      ),
+                                      Text(
+                                        AppLocale.of(context).delete,
+                                        style: const TextStyle(
+                                          color: Colors.redAccent,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                    ],
                                   ),
-                                  title: Text(
-                                    item.note,
-                                    style: const TextStyle(
-                                      color: AppColors.tertiaryTextColor,
+                                ),
+                                child: Card(
+                                  margin: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
+                                  color: AppColors.primaryColor,
+                                  child: ListTile(
+                                    contentPadding: const EdgeInsets.symmetric(
+                                      vertical: 4,
+                                      horizontal: 16,
+                                    ),
+                                    title: Text(
+                                      item.note,
+                                      style: AppStyles.defaultWhiteTextStyle,
                                     ),
                                   ),
                                 ),
@@ -118,8 +118,7 @@ class NoteListView extends StatelessWidget {
                             Text(
                               AppLocale.of(context).emptyNoteListText,
                               textAlign: TextAlign.center,
-                              style: const TextStyle(
-                                color: AppColors.secondaryTextColor,
+                              style: AppStyles.defaultGrayTextStyle.copyWith(
                                 fontWeight: FontWeight.w500,
                                 fontSize: 16,
                               ),
@@ -144,7 +143,7 @@ class NoteListView extends StatelessWidget {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton(
         backgroundColor: AppColors.accentColor,
-        onPressed: () => context.push(AppRoute.noteAddEditRoute),
+        onPressed: () => context.pushNamed(AppRoute.noteAddEditRoute),
         child: AppAssets.icons.icAdd.svg(height: 30),
       ),
     );
