@@ -63,15 +63,15 @@ class _NoteDetailsViewState extends State<NoteDetailsView> {
                           padding: const EdgeInsets.all(24),
                           margin: const EdgeInsets.all(24),
                           decoration: BoxDecoration(
-                            color: AppColors.primaryColor,
-                            borderRadius: BorderRadius.circular(24),
+                            color: AppColors.accentColor,
+                            borderRadius: BorderRadius.circular(8),
                           ),
                           child: Text(
                             entity.note,
                             textAlign: TextAlign.center,
                             style: AppStyles.defaultTextStyle.copyWith(
-                              color: Colors.white,
                               fontSize: 24,
+                              fontWeight: FontWeight.w600,
                             ),
                           ),
                         );

@@ -13,20 +13,23 @@ import 'package:flutter/material.dart';
 class AppColors {
   AppColors._();
 
-  /// Color: #2F1A1A
-  static const Color accentColor = Color(0xFF2F1A1A);
+  /// Color: #F9F492
+  static const Color accentColor = Color(0xFFF9F492);
 
-  /// Color: #2F1A1A
-  static const Color buttonColor = Color(0xFF2F1A1A);
+  /// Color: #111111
+  static const Color buttonColor = Color(0xFF111111);
 
-  /// Color: #A792F9
-  static const Color primaryColor = Color(0xFFA792F9);
+  /// Color: #111111
+  static const Color deleteColor = Color(0xFF111111);
+
+  /// Color: #111111
+  static const Color primaryColor = Color(0xFF111111);
 
   /// Color: #201E20
   static const Color primaryTextColor = Color(0xFF201E20);
 
-  /// Color: #FAF1F1
-  static const Color secondaryColor = Color(0xFFFAF1F1);
+  /// Color: #EEEEEE
+  static const Color secondaryColor = Color(0xFFEEEEEE);
 
   /// Color: #ADB5BD
   static const Color secondaryTextColor = Color(0xFFADB5BD);
@@ -34,6 +37,6 @@ class AppColors {
   /// Color: #FFFFFF
   static const Color tertiaryTextColor = Color(0xFFFFFFFF);
 
-  /// Color: #F7F7FC
-  static const Color textFieldColor = Color(0xFFF7F7FC);
+  /// Color: #F7F7F7
+  static const Color textFieldColor = Color(0xFFF7F7F7);
 }

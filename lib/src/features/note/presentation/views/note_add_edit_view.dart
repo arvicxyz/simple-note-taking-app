@@ -26,12 +26,11 @@ class _NoteAddEditViewState extends State<NoteAddEditView> {
   @override
   void initState() {
     super.initState();
-    int id = 0;
     if (widget.noteId != null) {
       _isEdit = true;
-      id = int.parse(widget.noteId!);
+      var id = int.parse(widget.noteId!);
+      context.read<NoteDetailsBloc>().add(NoteDetailsEvent.get(id: id));
     }
-    context.read<NoteDetailsBloc>().add(NoteDetailsEvent.get(id: id));
   }
 
   @override
@@ -77,22 +76,26 @@ class _NoteAddEditViewState extends State<NoteAddEditView> {
                           margin: const EdgeInsets.all(24),
                           decoration: BoxDecoration(
                             color: AppColors.primaryColor,
-                            borderRadius: BorderRadius.circular(24),
+                            borderRadius: BorderRadius.circular(8),
                           ),
                           child: TextField(
-                            controller: _noteTextController..text = entity.note,
+                            controller: _isEdit
+                                ? (_noteTextController..text = entity.note)
+                                : _noteTextController,
                             keyboardType: TextInputType.multiline,
                             maxLines: null,
                             minLines: 1,
                             textAlign: TextAlign.center,
                             textAlignVertical: TextAlignVertical.center,
                             scrollPadding: const EdgeInsets.all(24),
-                            style: AppStyles.defaultTextStyle.copyWith(
-                              color: Colors.white,
+                            style: AppStyles.defaultWhiteTextStyle.copyWith(
                               fontSize: 24,
                             ),
-                            decoration: const InputDecoration(
+                            decoration: InputDecoration(
                               hintText: "Type your note...",
+                              hintStyle: AppStyles.defaultWhiteTextStyle.copyWith(
+                                fontSize: 24,
+                              ),
                               border: InputBorder.none,
                             ),
                           ),

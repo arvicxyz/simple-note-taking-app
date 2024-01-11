@@ -49,7 +49,7 @@ class NoteListView extends StatelessWidget {
                     idle: (entityList) {
                       if (entityList.isNotEmpty) {
                         return ListView.builder(
-                          padding: const EdgeInsets.only(top: 9, bottom: 100),
+                          padding: const EdgeInsets.only(top: 8, bottom: 80),
                           itemCount: entityList.length,
                           itemBuilder: (context, index) {
                             final item = entityList[index];
@@ -80,33 +80,52 @@ class NoteListView extends StatelessWidget {
                                     mainAxisAlignment: MainAxisAlignment.end,
                                     children: [
                                       const Icon(
-                                        Icons.keyboard_double_arrow_left_outlined,
-                                        color: Colors.redAccent,
+                                        Icons.delete_outlined,
+                                        color: AppColors.deleteColor,
                                       ),
                                       Text(
                                         AppLocale.of(context).delete,
                                         style: const TextStyle(
-                                          color: Colors.redAccent,
+                                          color: AppColors.deleteColor,
                                           fontWeight: FontWeight.bold,
                                         ),
                                       ),
                                     ],
                                   ),
                                 ),
-                                child: Container(
-                                  margin: const EdgeInsets.symmetric(vertical: 9, horizontal: 18),
-                                  decoration: const BoxDecoration(
-                                    color: AppColors.primaryColor,
-                                    borderRadius: BorderRadius.all(Radius.circular(18)),
-                                  ),
+                                child: Card(
+                                  margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+                                  elevation: 1.5,
+                                  color: AppColors.accentColor,
                                   child: ListTile(
                                     contentPadding: const EdgeInsets.symmetric(
                                       vertical: 18,
-                                      horizontal: 18,
+                                      horizontal: 12,
                                     ),
-                                    title: Text(
-                                      item.note,
-                                      style: AppStyles.defaultWhiteTextStyle.copyWith(fontSize: 18),
+                                    title: Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Flexible(
+                                          child: Text(
+                                            item.note,
+                                            style: AppStyles.defaultTextStyle.copyWith(
+                                              fontSize: 18,
+                                              fontWeight: FontWeight.w600,
+                                            ),
+                                          ),
+                                        ),
+                                        const SizedBox(width: 20),
+                                        const ClipRRect(
+                                          borderRadius: BorderRadius.all(Radius.circular(4)),
+                                          child: SizedBox(
+                                            width: 4,
+                                            height: 20,
+                                            child: ColoredBox(
+                                              color: Colors.black38,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
                                     ),
                                   ),
                                 ),
@@ -147,9 +166,9 @@ class NoteListView extends StatelessWidget {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton(
-        backgroundColor: AppColors.accentColor,
+        backgroundColor: AppColors.buttonColor,
         onPressed: () => context.pushNamed(AppRoute.noteAddEditRoute),
-        child: AppAssets.icons.icAdd.svg(height: 30),
+        child: AppAssets.icons.icAdd.svg(height: 15),
       ),
     );
   }

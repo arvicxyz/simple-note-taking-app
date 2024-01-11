@@ -7,9 +7,9 @@ import '../../../../resources/_resources.dart';
 
 class AppWidgets {
   static const Widget loadingIndicator = SizedBox(
-    height: 40,
+    height: 60,
     child: LoadingIndicator(
-      indicatorType: Indicator.lineSpinFadeLoader,
+      indicatorType: Indicator.ballSpinFadeLoader,
       colors: [AppColors.primaryColor],
     ),
   );
