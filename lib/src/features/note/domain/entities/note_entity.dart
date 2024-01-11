@@ -15,6 +15,13 @@ class NoteEntity with _$NoteEntity {
     DateTime? deletedOn,
   }) = _NoteEntity;
 
+  factory NoteEntity.empty() => const NoteEntity(
+        id: 0,
+        note: "",
+        completed: false,
+        userId: 0,
+      );
+
   factory NoteEntity.fromModel(NoteModel model) {
     return NoteEntity(
       id: model.id,

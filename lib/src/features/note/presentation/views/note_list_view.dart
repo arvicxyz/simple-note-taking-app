@@ -22,7 +22,7 @@ class NoteListView extends StatelessWidget {
         leading: const SizedBox.shrink(),
       ),
       body: SafeArea(
-        child: BlocConsumer<NoteBloc, NoteState>(
+        child: BlocConsumer<NoteListBloc, NoteListState>(
           listener: (context, state) {
             state.whenOrNull(
               success: () {},
@@ -49,7 +49,7 @@ class NoteListView extends StatelessWidget {
                     idle: (entityList) {
                       if (entityList.isNotEmpty) {
                         return ListView.builder(
-                          padding: const EdgeInsets.only(top: 4, bottom: 100),
+                          padding: const EdgeInsets.only(top: 9, bottom: 100),
                           itemCount: entityList.length,
                           itemBuilder: (context, index) {
                             final item = entityList[index];
@@ -63,7 +63,9 @@ class NoteListView extends StatelessWidget {
                                 direction: DismissDirection.horizontal,
                                 onDismissed: (direction) {
                                   if (direction == DismissDirection.endToStart) {
-                                    context.read<NoteBloc>().add(NoteEvent.delete(id: item.id));
+                                    context.read<NoteListBloc>().add(
+                                          NoteListEvent.delete(id: item.id),
+                                        );
                                   }
                                 },
                                 confirmDismiss: (direction) async {
@@ -91,17 +93,20 @@ class NoteListView extends StatelessWidget {
                                     ],
                                   ),
                                 ),
-                                child: Card(
-                                  margin: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
-                                  color: AppColors.primaryColor,
+                                child: Container(
+                                  margin: const EdgeInsets.symmetric(vertical: 9, horizontal: 18),
+                                  decoration: const BoxDecoration(
+                                    color: AppColors.primaryColor,
+                                    borderRadius: BorderRadius.all(Radius.circular(18)),
+                                  ),
                                   child: ListTile(
                                     contentPadding: const EdgeInsets.symmetric(
-                                      vertical: 4,
-                                      horizontal: 16,
+                                      vertical: 18,
+                                      horizontal: 18,
                                     ),
                                     title: Text(
                                       item.note,
-                                      style: AppStyles.defaultWhiteTextStyle,
+                                      style: AppStyles.defaultWhiteTextStyle.copyWith(fontSize: 18),
                                     ),
                                   ),
                                 ),

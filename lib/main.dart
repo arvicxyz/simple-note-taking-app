@@ -57,7 +57,10 @@ class NoteApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => getIt<NoteBloc>()..add(const NoteEvent.getAll()),
+          create: (context) => getIt<NoteListBloc>()..add(const NoteListEvent.getAll()),
+        ),
+        BlocProvider(
+          create: (context) => getIt<NoteDetailsBloc>(),
         ),
       ],
       child: MaterialApp.router(

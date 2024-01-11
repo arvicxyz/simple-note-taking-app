@@ -32,10 +32,13 @@ import '../features/note/domain/use_cases/delete_note_use_case.dart' as _i21;
 import '../features/note/domain/use_cases/get_all_note_use_case.dart' as _i22;
 import '../features/note/domain/use_cases/get_note_use_case.dart' as _i23;
 import '../features/note/domain/use_cases/update_note_use_case.dart' as _i18;
-import '../features/note/presentation/blocs/note/note_bloc.dart' as _i24;
+import '../features/note/presentation/blocs/note_details/note_details_bloc.dart'
+    as _i24;
+import '../features/note/presentation/blocs/note_list/note_list_bloc.dart'
+    as _i25;
 import '_config.dart' as _i10;
 import 'app_config.dart' as _i7;
-import 'register_module.dart' as _i25;
+import 'register_module.dart' as _i26;
 
 // initializes the registration of main-scope dependencies inside of GetIt
 Future<_i1.GetIt> init(
@@ -94,13 +97,17 @@ Future<_i1.GetIt> init(
       () => _i22.GetAllNoteUseCase(gh<_i19.NoteRepository>()));
   gh.lazySingleton<_i23.GetNoteUseCase>(
       () => _i23.GetNoteUseCase(gh<_i19.NoteRepository>()));
-  gh.lazySingleton<_i24.NoteBloc>(() => _i24.NoteBloc(
-        gh<_i19.GetAllNoteUseCase>(),
+  gh.lazySingleton<_i24.NoteDetailsBloc>(() => _i24.NoteDetailsBloc(
+        gh<_i19.GetNoteUseCase>(),
         gh<_i19.AddNoteUseCase>(),
         gh<_i19.UpdateNoteUseCase>(),
+        gh<_i19.DeleteNoteUseCase>(),
+      ));
+  gh.lazySingleton<_i25.NoteListBloc>(() => _i25.NoteListBloc(
+        gh<_i19.GetAllNoteUseCase>(),
         gh<_i19.DeleteNoteUseCase>(),
       ));
   return getIt;
 }
 
-class _$RegisterModule extends _i25.RegisterModule {}
+class _$RegisterModule extends _i26.RegisterModule {}

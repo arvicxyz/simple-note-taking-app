@@ -26,7 +26,9 @@ class AppRoute {
           GoRoute(
             name: noteAddEditRoute,
             path: noteAddEditRoute,
-            builder: (context, state) => const NoteAddEditView(),
+            builder: (context, state) => NoteAddEditView(
+              noteId: state.extra as String?,
+            ),
           ),
         ],
       ),
