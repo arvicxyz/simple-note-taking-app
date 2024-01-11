@@ -29,12 +29,12 @@ class AppLogger {
     }
   }
 
-  static void logDebug(Object? message) {
+  static void logInfo(Object? message) {
     try {
       if (message == null) return;
       if (kDebugMode) {
         final logger = getIt<Logger>();
-        logger.d(message);
+        logger.i(message);
       }
     } on Exception catch (_) {
       rethrow;

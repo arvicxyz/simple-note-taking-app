@@ -2,6 +2,8 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:simple_note_taking_app/src/features/note/note.dart';
 
 import 'src/config/_config.dart';
 import 'src/localization/_localization.dart';
@@ -52,13 +54,20 @@ class NoteApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      debugShowCheckedModeBanner: false,
-      onGenerateTitle: (context) => AppLocale.of(context).appTitle,
-      localizationsDelegates: AppLocale.localizationsDelegates,
-      supportedLocales: AppLocale.supportedLocales,
-      theme: AppTheme.simpleTheme,
-      routerConfig: AppRoute.routerConfig,
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => getIt<NoteBloc>()..add(const NoteEvent.getAll()),
+        ),
+      ],
+      child: MaterialApp.router(
+        debugShowCheckedModeBanner: false,
+        onGenerateTitle: (context) => AppLocale.of(context).appTitle,
+        localizationsDelegates: AppLocale.localizationsDelegates,
+        supportedLocales: AppLocale.supportedLocales,
+        theme: AppTheme.simpleTheme,
+        routerConfig: AppRoute.routerConfig,
+      ),
     );
   }
 }
