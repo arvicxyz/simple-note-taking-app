@@ -1,6 +1,8 @@
 {
     "appTitle": "Notter",
     "delete": "Delete",
+    "addNote": "Add Note",
+    "editNote": "Edit Note",
     "emptyNoteListText": "You have no notes available,\nclick the (+) button below to add one",
     "errorTitleOops": "Oops!",
     "errorServerAccess": "An error occured during server access. Please try again or come back later."

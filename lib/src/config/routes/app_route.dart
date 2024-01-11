@@ -20,7 +20,7 @@ class AppRoute {
             name: noteDetailsRoute,
             path: '$noteDetailsRoute/:noteId',
             builder: (context, state) => NoteDetailsView(
-              id: state.pathParameters['noteId'],
+              noteId: state.pathParameters['noteId'],
             ),
           ),
           GoRoute(

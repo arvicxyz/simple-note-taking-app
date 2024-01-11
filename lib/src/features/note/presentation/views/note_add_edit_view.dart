@@ -12,9 +12,9 @@ class NoteAddEditView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const MaterialAppBar(
+      appBar: MaterialAppBar(
         title: Text(
-          "Add Note",
+          AppLocale.of(context).addNote,
           style: AppStyles.appBarTitleTextStyle,
         ),
       ),
