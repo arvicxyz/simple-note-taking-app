@@ -55,11 +55,11 @@ class _NoteDetailsViewState extends State<NoteDetailsView> {
               child: Stack(
                 fit: StackFit.expand,
                 children: [
-                  SingleChildScrollView(
-                    physics: const AlwaysScrollableScrollPhysics(),
-                    child: state.maybeWhen(
-                      idle: (entity) {
-                        return Container(
+                  state.maybeWhen(
+                    idle: (entity) {
+                      return SingleChildScrollView(
+                        physics: const AlwaysScrollableScrollPhysics(),
+                        child: Container(
                           padding: const EdgeInsets.all(24),
                           margin: const EdgeInsets.all(24),
                           decoration: BoxDecoration(
@@ -69,15 +69,12 @@ class _NoteDetailsViewState extends State<NoteDetailsView> {
                           child: Text(
                             entity.note,
                             textAlign: TextAlign.center,
-                            style: AppStyles.defaultPrimaryTextStyle.copyWith(
-                              fontSize: 24,
-                              fontWeight: FontWeight.w600,
-                            ),
+                            style: AppStyles.noteDetailsTextStyle,
                           ),
-                        );
-                      },
-                      orElse: () => const SizedBox.shrink(),
-                    ),
+                        ),
+                      );
+                    },
+                    orElse: () => const SizedBox.shrink(),
                   ),
                   state.maybeWhen(
                     loading: () => const Center(child: AppWidgets.loadingIndicator),
@@ -87,6 +84,57 @@ class _NoteDetailsViewState extends State<NoteDetailsView> {
               ),
             );
           },
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16),
+        child: Row(
+          children: [
+            Expanded(
+              child: ElevatedButton(
+                onPressed: () {},
+                style: AppStyles.defaultButtonStyle.copyWith(
+                  backgroundColor: const MaterialStatePropertyAll(AppColors.deleteColor),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Icon(
+                      Icons.delete,
+                      size: 16,
+                    ),
+                    const SizedBox(width: 8),
+                    Text(
+                      AppLocale.of(context).delete,
+                      style: AppStyles.defaultTertiaryTextStyle,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            const SizedBox(width: 8),
+            Expanded(
+              child: ElevatedButton(
+                onPressed: () {},
+                style: AppStyles.defaultButtonStyle,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Icon(
+                      Icons.edit,
+                      size: 16,
+                    ),
+                    const SizedBox(width: 8),
+                    Text(
+                      AppLocale.of(context).edit,
+                      style: AppStyles.defaultTertiaryTextStyle,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );

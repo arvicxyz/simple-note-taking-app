@@ -44,6 +44,7 @@ class NoteListView extends StatelessWidget {
                 orElse: () => false,
               ),
               child: Stack(
+                fit: StackFit.expand,
                 children: [
                   state.maybeWhen(
                     idle: (entityList) {
@@ -95,33 +96,30 @@ class NoteListView extends StatelessWidget {
                                 ),
                                 child: Card(
                                   margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(8),
+                                  ),
                                   elevation: 1.5,
                                   color: AppColors.accentColor,
                                   child: ListTile(
-                                    contentPadding: const EdgeInsets.symmetric(
-                                      vertical: 18,
-                                      horizontal: 12,
-                                    ),
+                                    titleAlignment: ListTileTitleAlignment.top,
+                                    contentPadding: const EdgeInsets.all(16),
                                     title: Row(
-                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                       children: [
-                                        Flexible(
+                                        Expanded(
                                           child: Text(
                                             item.note,
-                                            style: AppStyles.defaultPrimaryTextStyle.copyWith(
-                                              fontSize: 18,
-                                              fontWeight: FontWeight.w600,
-                                            ),
+                                            style: AppStyles.noteListTextStyle,
                                           ),
                                         ),
                                         const SizedBox(width: 20),
                                         const ClipRRect(
-                                          borderRadius: BorderRadius.all(Radius.circular(4)),
+                                          borderRadius: BorderRadius.all(Radius.circular(3)),
                                           child: SizedBox(
-                                            width: 4,
+                                            width: 3,
                                             height: 20,
                                             child: ColoredBox(
-                                              color: Colors.black38,
+                                              color: Colors.black54,
                                             ),
                                           ),
                                         ),
@@ -142,10 +140,7 @@ class NoteListView extends StatelessWidget {
                             Text(
                               AppLocale.of(context).emptyNoteListText,
                               textAlign: TextAlign.center,
-                              style: AppStyles.defaultSecondaryTextStyle.copyWith(
-                                fontWeight: FontWeight.w500,
-                                fontSize: 16,
-                              ),
+                              style: AppStyles.infoTextStyle,
                             ),
                             const SizedBox(height: 200),
                           ],
@@ -168,7 +163,7 @@ class NoteListView extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         backgroundColor: AppColors.buttonColor,
         onPressed: () => context.pushNamed(AppRoute.noteAddEditRoute),
-        child: AppAssets.icons.icAdd.svg(height: 15),
+        child: AppAssets.icons.icAdd.svg(height: 16),
       ),
     );
   }

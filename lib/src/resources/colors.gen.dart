@@ -19,14 +19,14 @@ class AppColors {
   /// Color: #111111
   static const Color buttonColor = Color(0xFF111111);
 
-  /// Color: #111111
-  static const Color deleteColor = Color(0xFF111111);
+  /// Color: #E55167
+  static const Color deleteColor = Color(0xFFE55167);
 
   /// Color: #111111
   static const Color primaryColor = Color(0xFF111111);
 
-  /// Color: #201E20
-  static const Color primaryTextColor = Color(0xFF201E20);
+  /// Color: #111111
+  static const Color primaryTextColor = Color(0xFF111111);
 
   /// Color: #EEEEEE
   static const Color secondaryColor = Color(0xFFEEEEEE);

@@ -69,13 +69,18 @@ class _NoteAddEditViewState extends State<NoteAddEditView> {
               child: Stack(
                 fit: StackFit.expand,
                 children: [
-                  SingleChildScrollView(
-                    physics: const AlwaysScrollableScrollPhysics(),
-                    child: state.maybeWhen(
-                      idle: (entity) {
-                        return Container(
+                  state.maybeWhen(
+                    idle: (entity) {
+                      return SingleChildScrollView(
+                        physics: const AlwaysScrollableScrollPhysics(),
+                        child: Container(
                           padding: const EdgeInsets.all(24),
-                          margin: const EdgeInsets.all(24),
+                          margin: const EdgeInsets.only(
+                            left: 24,
+                            top: 24,
+                            right: 24,
+                            bottom: 80,
+                          ),
                           decoration: BoxDecoration(
                             color: AppColors.textFieldColor,
                             border: Border.all(color: AppColors.primaryColor),
@@ -91,22 +96,17 @@ class _NoteAddEditViewState extends State<NoteAddEditView> {
                             minLines: 1,
                             textAlign: TextAlign.center,
                             textAlignVertical: TextAlignVertical.center,
-                            scrollPadding: const EdgeInsets.all(24),
-                            style: AppStyles.defaultPrimaryTextStyle.copyWith(
-                              fontSize: 24,
-                            ),
-                            decoration: InputDecoration(
-                              hintText: "Type your note...",
-                              hintStyle: AppStyles.defaultSecondaryTextStyle.copyWith(
-                                fontSize: 24,
-                              ),
+                            style: AppStyles.noteAddEditTextStyle,
+                            decoration: const InputDecoration(
+                              hintText: "Write your note...",
+                              hintStyle: AppStyles.noteAddEditHintTextStyle,
                               border: InputBorder.none,
                             ),
                           ),
-                        );
-                      },
-                      orElse: () => const SizedBox.shrink(),
-                    ),
+                        ),
+                      );
+                    },
+                    orElse: () => const SizedBox.shrink(),
                   ),
                   state.maybeWhen(
                     loading: () => const Center(child: AppWidgets.loadingIndicator),
@@ -116,6 +116,21 @@ class _NoteAddEditViewState extends State<NoteAddEditView> {
               ),
             );
           },
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16),
+        child: SizedBox(
+          width: double.infinity,
+          child: ElevatedButton(
+            onPressed: () {},
+            style: AppStyles.defaultButtonStyle,
+            child: Text(
+              AppLocale.of(context).save,
+              style: AppStyles.defaultTertiaryTextStyle,
+            ),
+          ),
         ),
       ),
     );

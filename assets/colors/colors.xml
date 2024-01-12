@@ -5,11 +5,11 @@
     <color name="secondary_color">#EEEEEE</color>
     <color name="accent_color">#F9F492</color>
     <!-- Text Colors -->
-    <color name="primary_text_color">#201E20</color>
+    <color name="primary_text_color">#111111</color>
     <color name="secondary_text_color">#ADB5BD</color>
     <color name="tertiary_text_color">#FFFFFF</color>
     <!-- Widget Colors -->
     <color name="text_field_color">#F7F7F7</color>
     <color name="button_color">#111111</color>
-    <color name="delete_color">#111111</color>
+    <color name="delete_color">#E55167</color>
 </resources>

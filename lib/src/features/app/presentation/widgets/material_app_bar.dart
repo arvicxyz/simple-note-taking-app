@@ -21,7 +21,7 @@ class MaterialAppBar extends StatelessWidget implements PreferredSizeWidget {
     super.key,
     this.title,
     this.leading,
-    this.icon = const Icon(Icons.arrow_back_ios_new),
+    this.icon = const Icon(Icons.keyboard_backspace),
     this.iconColor = AppColors.buttonColor,
     this.iconOnPressed,
     this.backgroundColor = Colors.transparent,
