@@ -62,6 +62,9 @@ class NoteApp extends StatelessWidget {
         BlocProvider(
           create: (context) => getIt<NoteDetailsBloc>(),
         ),
+        BlocProvider(
+          create: (context) => getIt<NoteAddEditBloc>(),
+        ),
       ],
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,

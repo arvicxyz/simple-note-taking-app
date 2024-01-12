@@ -16,27 +16,22 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$NoteDetailsEvent {
+  int get id => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(int id) get,
-    required TResult Function(NoteEntity entity) add,
-    required TResult Function(int id, NoteEntity entity) update,
     required TResult Function(int id) delete,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(int id)? get,
-    TResult? Function(NoteEntity entity)? add,
-    TResult? Function(int id, NoteEntity entity)? update,
     TResult? Function(int id)? delete,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int id)? get,
-    TResult Function(NoteEntity entity)? add,
-    TResult Function(int id, NoteEntity entity)? update,
     TResult Function(int id)? delete,
     required TResult orElse(),
   }) =>
@@ -44,27 +39,25 @@ mixin _$NoteDetailsEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_NoteDetailsEventGet value) get,
-    required TResult Function(_NoteDetailsEventAdd value) add,
-    required TResult Function(_NoteDetailsEventUpdate value) update,
     required TResult Function(_NoteDetailsEventDelete value) delete,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_NoteDetailsEventGet value)? get,
-    TResult? Function(_NoteDetailsEventAdd value)? add,
-    TResult? Function(_NoteDetailsEventUpdate value)? update,
     TResult? Function(_NoteDetailsEventDelete value)? delete,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_NoteDetailsEventGet value)? get,
-    TResult Function(_NoteDetailsEventAdd value)? add,
-    TResult Function(_NoteDetailsEventUpdate value)? update,
     TResult Function(_NoteDetailsEventDelete value)? delete,
     required TResult orElse(),
   }) =>
+      throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $NoteDetailsEventCopyWith<NoteDetailsEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -73,6 +66,8 @@ abstract class $NoteDetailsEventCopyWith<$Res> {
   factory $NoteDetailsEventCopyWith(
           NoteDetailsEvent value, $Res Function(NoteDetailsEvent) then) =
       _$NoteDetailsEventCopyWithImpl<$Res, NoteDetailsEvent>;
+  @useResult
+  $Res call({int id});
 }
 
 /// @nodoc
@@ -84,13 +79,28 @@ class _$NoteDetailsEventCopyWithImpl<$Res, $Val extends NoteDetailsEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+  }) {
+    return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+    ) as $Val);
+  }
 }
 
 /// @nodoc
-abstract class _$$NoteDetailsEventGetImplCopyWith<$Res> {
+abstract class _$$NoteDetailsEventGetImplCopyWith<$Res>
+    implements $NoteDetailsEventCopyWith<$Res> {
   factory _$$NoteDetailsEventGetImplCopyWith(_$NoteDetailsEventGetImpl value,
           $Res Function(_$NoteDetailsEventGetImpl) then) =
       __$$NoteDetailsEventGetImplCopyWithImpl<$Res>;
+  @override
   @useResult
   $Res call({int id});
 }
@@ -152,8 +162,6 @@ class _$NoteDetailsEventGetImpl implements _NoteDetailsEventGet {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(int id) get,
-    required TResult Function(NoteEntity entity) add,
-    required TResult Function(int id, NoteEntity entity) update,
     required TResult Function(int id) delete,
   }) {
     return get(id);
@@ -163,8 +171,6 @@ class _$NoteDetailsEventGetImpl implements _NoteDetailsEventGet {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(int id)? get,
-    TResult? Function(NoteEntity entity)? add,
-    TResult? Function(int id, NoteEntity entity)? update,
     TResult? Function(int id)? delete,
   }) {
     return get?.call(id);
@@ -174,8 +180,6 @@ class _$NoteDetailsEventGetImpl implements _NoteDetailsEventGet {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int id)? get,
-    TResult Function(NoteEntity entity)? add,
-    TResult Function(int id, NoteEntity entity)? update,
     TResult Function(int id)? delete,
     required TResult orElse(),
   }) {
@@ -189,8 +193,6 @@ class _$NoteDetailsEventGetImpl implements _NoteDetailsEventGet {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_NoteDetailsEventGet value) get,
-    required TResult Function(_NoteDetailsEventAdd value) add,
-    required TResult Function(_NoteDetailsEventUpdate value) update,
     required TResult Function(_NoteDetailsEventDelete value) delete,
   }) {
     return get(this);
@@ -200,8 +202,6 @@ class _$NoteDetailsEventGetImpl implements _NoteDetailsEventGet {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_NoteDetailsEventGet value)? get,
-    TResult? Function(_NoteDetailsEventAdd value)? add,
-    TResult? Function(_NoteDetailsEventUpdate value)? update,
     TResult? Function(_NoteDetailsEventDelete value)? delete,
   }) {
     return get?.call(this);
@@ -211,8 +211,6 @@ class _$NoteDetailsEventGetImpl implements _NoteDetailsEventGet {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_NoteDetailsEventGet value)? get,
-    TResult Function(_NoteDetailsEventAdd value)? add,
-    TResult Function(_NoteDetailsEventUpdate value)? update,
     TResult Function(_NoteDetailsEventDelete value)? delete,
     required TResult orElse(),
   }) {
@@ -227,344 +225,22 @@ abstract class _NoteDetailsEventGet implements NoteDetailsEvent {
   const factory _NoteDetailsEventGet({required final int id}) =
       _$NoteDetailsEventGetImpl;
 
+  @override
   int get id;
+  @override
   @JsonKey(ignore: true)
   _$$NoteDetailsEventGetImplCopyWith<_$NoteDetailsEventGetImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$NoteDetailsEventAddImplCopyWith<$Res> {
-  factory _$$NoteDetailsEventAddImplCopyWith(_$NoteDetailsEventAddImpl value,
-          $Res Function(_$NoteDetailsEventAddImpl) then) =
-      __$$NoteDetailsEventAddImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({NoteEntity entity});
-
-  $NoteEntityCopyWith<$Res> get entity;
-}
-
-/// @nodoc
-class __$$NoteDetailsEventAddImplCopyWithImpl<$Res>
-    extends _$NoteDetailsEventCopyWithImpl<$Res, _$NoteDetailsEventAddImpl>
-    implements _$$NoteDetailsEventAddImplCopyWith<$Res> {
-  __$$NoteDetailsEventAddImplCopyWithImpl(_$NoteDetailsEventAddImpl _value,
-      $Res Function(_$NoteDetailsEventAddImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? entity = null,
-  }) {
-    return _then(_$NoteDetailsEventAddImpl(
-      entity: null == entity
-          ? _value.entity
-          : entity // ignore: cast_nullable_to_non_nullable
-              as NoteEntity,
-    ));
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $NoteEntityCopyWith<$Res> get entity {
-    return $NoteEntityCopyWith<$Res>(_value.entity, (value) {
-      return _then(_value.copyWith(entity: value));
-    });
-  }
-}
-
-/// @nodoc
-
-class _$NoteDetailsEventAddImpl implements _NoteDetailsEventAdd {
-  const _$NoteDetailsEventAddImpl({required this.entity});
-
-  @override
-  final NoteEntity entity;
-
-  @override
-  String toString() {
-    return 'NoteDetailsEvent.add(entity: $entity)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$NoteDetailsEventAddImpl &&
-            (identical(other.entity, entity) || other.entity == entity));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, entity);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$NoteDetailsEventAddImplCopyWith<_$NoteDetailsEventAddImpl> get copyWith =>
-      __$$NoteDetailsEventAddImplCopyWithImpl<_$NoteDetailsEventAddImpl>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(int id) get,
-    required TResult Function(NoteEntity entity) add,
-    required TResult Function(int id, NoteEntity entity) update,
-    required TResult Function(int id) delete,
-  }) {
-    return add(entity);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int id)? get,
-    TResult? Function(NoteEntity entity)? add,
-    TResult? Function(int id, NoteEntity entity)? update,
-    TResult? Function(int id)? delete,
-  }) {
-    return add?.call(entity);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int id)? get,
-    TResult Function(NoteEntity entity)? add,
-    TResult Function(int id, NoteEntity entity)? update,
-    TResult Function(int id)? delete,
-    required TResult orElse(),
-  }) {
-    if (add != null) {
-      return add(entity);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_NoteDetailsEventGet value) get,
-    required TResult Function(_NoteDetailsEventAdd value) add,
-    required TResult Function(_NoteDetailsEventUpdate value) update,
-    required TResult Function(_NoteDetailsEventDelete value) delete,
-  }) {
-    return add(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_NoteDetailsEventGet value)? get,
-    TResult? Function(_NoteDetailsEventAdd value)? add,
-    TResult? Function(_NoteDetailsEventUpdate value)? update,
-    TResult? Function(_NoteDetailsEventDelete value)? delete,
-  }) {
-    return add?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_NoteDetailsEventGet value)? get,
-    TResult Function(_NoteDetailsEventAdd value)? add,
-    TResult Function(_NoteDetailsEventUpdate value)? update,
-    TResult Function(_NoteDetailsEventDelete value)? delete,
-    required TResult orElse(),
-  }) {
-    if (add != null) {
-      return add(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _NoteDetailsEventAdd implements NoteDetailsEvent {
-  const factory _NoteDetailsEventAdd({required final NoteEntity entity}) =
-      _$NoteDetailsEventAddImpl;
-
-  NoteEntity get entity;
-  @JsonKey(ignore: true)
-  _$$NoteDetailsEventAddImplCopyWith<_$NoteDetailsEventAddImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$NoteDetailsEventUpdateImplCopyWith<$Res> {
-  factory _$$NoteDetailsEventUpdateImplCopyWith(
-          _$NoteDetailsEventUpdateImpl value,
-          $Res Function(_$NoteDetailsEventUpdateImpl) then) =
-      __$$NoteDetailsEventUpdateImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({int id, NoteEntity entity});
-
-  $NoteEntityCopyWith<$Res> get entity;
-}
-
-/// @nodoc
-class __$$NoteDetailsEventUpdateImplCopyWithImpl<$Res>
-    extends _$NoteDetailsEventCopyWithImpl<$Res, _$NoteDetailsEventUpdateImpl>
-    implements _$$NoteDetailsEventUpdateImplCopyWith<$Res> {
-  __$$NoteDetailsEventUpdateImplCopyWithImpl(
-      _$NoteDetailsEventUpdateImpl _value,
-      $Res Function(_$NoteDetailsEventUpdateImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-    Object? entity = null,
-  }) {
-    return _then(_$NoteDetailsEventUpdateImpl(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
-      entity: null == entity
-          ? _value.entity
-          : entity // ignore: cast_nullable_to_non_nullable
-              as NoteEntity,
-    ));
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $NoteEntityCopyWith<$Res> get entity {
-    return $NoteEntityCopyWith<$Res>(_value.entity, (value) {
-      return _then(_value.copyWith(entity: value));
-    });
-  }
-}
-
-/// @nodoc
-
-class _$NoteDetailsEventUpdateImpl implements _NoteDetailsEventUpdate {
-  const _$NoteDetailsEventUpdateImpl({required this.id, required this.entity});
-
-  @override
-  final int id;
-  @override
-  final NoteEntity entity;
-
-  @override
-  String toString() {
-    return 'NoteDetailsEvent.update(id: $id, entity: $entity)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$NoteDetailsEventUpdateImpl &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.entity, entity) || other.entity == entity));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, id, entity);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$NoteDetailsEventUpdateImplCopyWith<_$NoteDetailsEventUpdateImpl>
-      get copyWith => __$$NoteDetailsEventUpdateImplCopyWithImpl<
-          _$NoteDetailsEventUpdateImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(int id) get,
-    required TResult Function(NoteEntity entity) add,
-    required TResult Function(int id, NoteEntity entity) update,
-    required TResult Function(int id) delete,
-  }) {
-    return update(id, entity);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int id)? get,
-    TResult? Function(NoteEntity entity)? add,
-    TResult? Function(int id, NoteEntity entity)? update,
-    TResult? Function(int id)? delete,
-  }) {
-    return update?.call(id, entity);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int id)? get,
-    TResult Function(NoteEntity entity)? add,
-    TResult Function(int id, NoteEntity entity)? update,
-    TResult Function(int id)? delete,
-    required TResult orElse(),
-  }) {
-    if (update != null) {
-      return update(id, entity);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_NoteDetailsEventGet value) get,
-    required TResult Function(_NoteDetailsEventAdd value) add,
-    required TResult Function(_NoteDetailsEventUpdate value) update,
-    required TResult Function(_NoteDetailsEventDelete value) delete,
-  }) {
-    return update(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_NoteDetailsEventGet value)? get,
-    TResult? Function(_NoteDetailsEventAdd value)? add,
-    TResult? Function(_NoteDetailsEventUpdate value)? update,
-    TResult? Function(_NoteDetailsEventDelete value)? delete,
-  }) {
-    return update?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_NoteDetailsEventGet value)? get,
-    TResult Function(_NoteDetailsEventAdd value)? add,
-    TResult Function(_NoteDetailsEventUpdate value)? update,
-    TResult Function(_NoteDetailsEventDelete value)? delete,
-    required TResult orElse(),
-  }) {
-    if (update != null) {
-      return update(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _NoteDetailsEventUpdate implements NoteDetailsEvent {
-  const factory _NoteDetailsEventUpdate(
-      {required final int id,
-      required final NoteEntity entity}) = _$NoteDetailsEventUpdateImpl;
-
-  int get id;
-  NoteEntity get entity;
-  @JsonKey(ignore: true)
-  _$$NoteDetailsEventUpdateImplCopyWith<_$NoteDetailsEventUpdateImpl>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$NoteDetailsEventDeleteImplCopyWith<$Res> {
+abstract class _$$NoteDetailsEventDeleteImplCopyWith<$Res>
+    implements $NoteDetailsEventCopyWith<$Res> {
   factory _$$NoteDetailsEventDeleteImplCopyWith(
           _$NoteDetailsEventDeleteImpl value,
           $Res Function(_$NoteDetailsEventDeleteImpl) then) =
       __$$NoteDetailsEventDeleteImplCopyWithImpl<$Res>;
+  @override
   @useResult
   $Res call({int id});
 }
@@ -627,8 +303,6 @@ class _$NoteDetailsEventDeleteImpl implements _NoteDetailsEventDelete {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(int id) get,
-    required TResult Function(NoteEntity entity) add,
-    required TResult Function(int id, NoteEntity entity) update,
     required TResult Function(int id) delete,
   }) {
     return delete(id);
@@ -638,8 +312,6 @@ class _$NoteDetailsEventDeleteImpl implements _NoteDetailsEventDelete {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(int id)? get,
-    TResult? Function(NoteEntity entity)? add,
-    TResult? Function(int id, NoteEntity entity)? update,
     TResult? Function(int id)? delete,
   }) {
     return delete?.call(id);
@@ -649,8 +321,6 @@ class _$NoteDetailsEventDeleteImpl implements _NoteDetailsEventDelete {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int id)? get,
-    TResult Function(NoteEntity entity)? add,
-    TResult Function(int id, NoteEntity entity)? update,
     TResult Function(int id)? delete,
     required TResult orElse(),
   }) {
@@ -664,8 +334,6 @@ class _$NoteDetailsEventDeleteImpl implements _NoteDetailsEventDelete {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_NoteDetailsEventGet value) get,
-    required TResult Function(_NoteDetailsEventAdd value) add,
-    required TResult Function(_NoteDetailsEventUpdate value) update,
     required TResult Function(_NoteDetailsEventDelete value) delete,
   }) {
     return delete(this);
@@ -675,8 +343,6 @@ class _$NoteDetailsEventDeleteImpl implements _NoteDetailsEventDelete {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_NoteDetailsEventGet value)? get,
-    TResult? Function(_NoteDetailsEventAdd value)? add,
-    TResult? Function(_NoteDetailsEventUpdate value)? update,
     TResult? Function(_NoteDetailsEventDelete value)? delete,
   }) {
     return delete?.call(this);
@@ -686,8 +352,6 @@ class _$NoteDetailsEventDeleteImpl implements _NoteDetailsEventDelete {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_NoteDetailsEventGet value)? get,
-    TResult Function(_NoteDetailsEventAdd value)? add,
-    TResult Function(_NoteDetailsEventUpdate value)? update,
     TResult Function(_NoteDetailsEventDelete value)? delete,
     required TResult orElse(),
   }) {
@@ -702,7 +366,9 @@ abstract class _NoteDetailsEventDelete implements NoteDetailsEvent {
   const factory _NoteDetailsEventDelete({required final int id}) =
       _$NoteDetailsEventDeleteImpl;
 
+  @override
   int get id;
+  @override
   @JsonKey(ignore: true)
   _$$NoteDetailsEventDeleteImplCopyWith<_$NoteDetailsEventDeleteImpl>
       get copyWith => throw _privateConstructorUsedError;

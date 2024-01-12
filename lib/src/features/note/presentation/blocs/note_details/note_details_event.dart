@@ -6,15 +6,6 @@ class NoteDetailsEvent with _$NoteDetailsEvent {
     required int id,
   }) = _NoteDetailsEventGet;
 
-  const factory NoteDetailsEvent.add({
-    required NoteEntity entity,
-  }) = _NoteDetailsEventAdd;
-
-  const factory NoteDetailsEvent.update({
-    required int id,
-    required NoteEntity entity,
-  }) = _NoteDetailsEventUpdate;
-
   const factory NoteDetailsEvent.delete({
     required int id,
   }) = _NoteDetailsEventDelete;

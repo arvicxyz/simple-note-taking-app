@@ -30,7 +30,7 @@ class _NoteAddEditViewState extends State<NoteAddEditView> {
     if (widget.noteId != null) {
       _isEdit = true;
       var id = int.parse(widget.noteId!);
-      context.read<NoteDetailsBloc>().add(NoteDetailsEvent.get(id: id));
+      context.read<NoteAddEditBloc>().add(NoteAddEditEvent.get(id: id));
     }
     _noteFocusNode.requestFocus();
   }
@@ -45,7 +45,7 @@ class _NoteAddEditViewState extends State<NoteAddEditView> {
         ),
       ),
       body: SafeArea(
-        child: BlocConsumer<NoteDetailsBloc, NoteDetailsState>(
+        child: BlocConsumer<NoteAddEditBloc, NoteAddEditState>(
           listener: (context, state) {
             state.whenOrNull(
               success: () {},
