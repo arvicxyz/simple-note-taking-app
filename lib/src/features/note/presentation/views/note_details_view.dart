@@ -69,7 +69,7 @@ class _NoteDetailsViewState extends State<NoteDetailsView> {
                           child: Text(
                             entity.note,
                             textAlign: TextAlign.center,
-                            style: AppStyles.defaultTextStyle.copyWith(
+                            style: AppStyles.defaultPrimaryTextStyle.copyWith(
                               fontSize: 24,
                               fontWeight: FontWeight.w600,
                             ),

@@ -11,19 +11,19 @@ class AppStyles {
     fontSize: 24,
   );
 
-  static const defaultTextStyle = TextStyle(
+  static const defaultPrimaryTextStyle = TextStyle(
     color: AppColors.primaryTextColor,
     fontWeight: FontWeight.normal,
     fontSize: 14,
   );
 
-  static const defaultGrayTextStyle = TextStyle(
+  static const defaultSecondaryTextStyle = TextStyle(
     color: AppColors.secondaryTextColor,
     fontWeight: FontWeight.normal,
     fontSize: 14,
   );
 
-  static const defaultWhiteTextStyle = TextStyle(
+  static const defaultTertiaryTextStyle = TextStyle(
     color: AppColors.tertiaryTextColor,
     fontWeight: FontWeight.normal,
     fontSize: 14,

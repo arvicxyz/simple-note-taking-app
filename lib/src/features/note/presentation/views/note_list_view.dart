@@ -108,7 +108,7 @@ class NoteListView extends StatelessWidget {
                                         Flexible(
                                           child: Text(
                                             item.note,
-                                            style: AppStyles.defaultTextStyle.copyWith(
+                                            style: AppStyles.defaultPrimaryTextStyle.copyWith(
                                               fontSize: 18,
                                               fontWeight: FontWeight.w600,
                                             ),
@@ -142,7 +142,7 @@ class NoteListView extends StatelessWidget {
                             Text(
                               AppLocale.of(context).emptyNoteListText,
                               textAlign: TextAlign.center,
-                              style: AppStyles.defaultGrayTextStyle.copyWith(
+                              style: AppStyles.defaultSecondaryTextStyle.copyWith(
                                 fontWeight: FontWeight.w500,
                                 fontSize: 16,
                               ),
