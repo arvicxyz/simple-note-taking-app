@@ -100,55 +100,64 @@ class _NoteDetailsViewState extends State<NoteDetailsView> {
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      floatingActionButton: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16),
-        child: Row(
-          children: [
-            Expanded(
-              child: ElevatedButton(
-                onPressed: () => _dialogBuilder(context),
-                style: AppStyles.defaultButtonStyle.copyWith(
-                  backgroundColor: const MaterialStatePropertyAll(AppColors.deleteColor),
-                ),
+      floatingActionButton: BlocBuilder<NoteDetailsBloc, NoteDetailsState>(
+        builder: (context, state) {
+          return state.maybeWhen(
+            loading: () => const SizedBox.shrink(),
+            orElse: () {
+              return Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Icon(
-                      Icons.delete,
-                      size: 16,
+                    Expanded(
+                      child: ElevatedButton(
+                        onPressed: () => _dialogBuilder(context),
+                        style: AppStyles.defaultButtonStyle.copyWith(
+                          backgroundColor: const MaterialStatePropertyAll(AppColors.deleteColor),
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const Icon(
+                              Icons.delete,
+                              size: 16,
+                            ),
+                            const SizedBox(width: 8),
+                            Text(
+                              AppLocale.of(context).delete,
+                              style: AppStyles.defaultTertiaryTextStyle,
+                            ),
+                          ],
+                        ),
+                      ),
                     ),
                     const SizedBox(width: 8),
-                    Text(
-                      AppLocale.of(context).delete,
-                      style: AppStyles.defaultTertiaryTextStyle,
+                    Expanded(
+                      child: ElevatedButton(
+                        onPressed: () => context.pushNamed(AppRoute.noteAddEditRoute, extra: _id),
+                        style: AppStyles.defaultButtonStyle,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const Icon(
+                              Icons.edit,
+                              size: 16,
+                            ),
+                            const SizedBox(width: 8),
+                            Text(
+                              AppLocale.of(context).edit,
+                              style: AppStyles.defaultTertiaryTextStyle,
+                            ),
+                          ],
+                        ),
+                      ),
                     ),
                   ],
                 ),
-              ),
-            ),
-            const SizedBox(width: 8),
-            Expanded(
-              child: ElevatedButton(
-                onPressed: () => context.pushNamed(AppRoute.noteAddEditRoute, extra: _id),
-                style: AppStyles.defaultButtonStyle,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Icon(
-                      Icons.edit,
-                      size: 16,
-                    ),
-                    const SizedBox(width: 8),
-                    Text(
-                      AppLocale.of(context).edit,
-                      style: AppStyles.defaultTertiaryTextStyle,
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ],
-        ),
+              );
+            },
+          );
+        },
       ),
     );
   }

@@ -155,44 +155,53 @@ class _NoteAddEditViewState extends State<NoteAddEditView> {
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      floatingActionButton: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16),
-        child: SizedBox(
-          width: double.infinity,
-          child: ElevatedButton(
-            onPressed: () {
-              final note = _noteTextController.text.trim();
-              if (_isEdit) {
-                final bloc = context.read<NoteAddEditBloc>();
-                bloc.add(
-                  NoteAddEditEvent.update(
-                    id: _id,
-                    entity: bloc.state.maybeWhen(
-                      idle: (entity) => entity.copyWith(
-                        note: note,
-                      ),
-                      orElse: () => NoteEntity.empty(),
+      floatingActionButton: BlocBuilder<NoteAddEditBloc, NoteAddEditState>(
+        builder: (context, state) {
+          return state.maybeWhen(
+            loading: () => const SizedBox.shrink(),
+            orElse: () {
+              return Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      final note = _noteTextController.text.trim();
+                      if (_isEdit) {
+                        final bloc = context.read<NoteAddEditBloc>();
+                        bloc.add(
+                          NoteAddEditEvent.update(
+                            id: _id,
+                            entity: bloc.state.maybeWhen(
+                              idle: (entity) => entity.copyWith(
+                                note: note,
+                              ),
+                              orElse: () => NoteEntity.empty(),
+                            ),
+                          ),
+                        );
+                      } else {
+                        final bloc = context.read<NoteAddEditBloc>();
+                        bloc.add(
+                          NoteAddEditEvent.add(
+                            entity: NoteEntity.empty().copyWith(
+                              note: note,
+                            ),
+                          ),
+                        );
+                      }
+                    },
+                    style: AppStyles.defaultButtonStyle,
+                    child: Text(
+                      AppLocale.of(context).save,
+                      style: AppStyles.defaultTertiaryTextStyle,
                     ),
                   ),
-                );
-              } else {
-                final bloc = context.read<NoteAddEditBloc>();
-                bloc.add(
-                  NoteAddEditEvent.add(
-                    entity: NoteEntity.empty().copyWith(
-                      note: note,
-                    ),
-                  ),
-                );
-              }
+                ),
+              );
             },
-            style: AppStyles.defaultButtonStyle,
-            child: Text(
-              AppLocale.of(context).save,
-              style: AppStyles.defaultTertiaryTextStyle,
-            ),
-          ),
-        ),
+          );
+        },
       ),
     );
   }
