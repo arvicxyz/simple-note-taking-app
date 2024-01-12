@@ -6,10 +6,21 @@ import '../../../../config/_config.dart';
 import '../../../../localization/_localization.dart';
 import '../../../../resources/_resources.dart';
 import '../../../app/app.dart';
-import '../../note.dart';
+import '../blocs/_blocs.dart';
 
-class NoteListView extends StatelessWidget {
+class NoteListView extends StatefulWidget {
   const NoteListView({super.key});
+
+  @override
+  State<NoteListView> createState() => _NoteListViewState();
+}
+
+class _NoteListViewState extends State<NoteListView> {
+  @override
+  void initState() {
+    super.initState();
+    
+  }
 
   @override
   Widget build(BuildContext context) {

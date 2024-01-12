@@ -59,10 +59,33 @@ class AppStyles {
     fontSize: 24,
   );
 
+  static const dialogTitleTextStyle = TextStyle(
+    color: AppColors.primaryTextColor,
+    fontWeight: FontWeight.bold,
+    fontSize: 22,
+  );
+
+  static const dialogContentTextStyle = TextStyle(
+    color: AppColors.primaryTextColor,
+    fontWeight: FontWeight.normal,
+    fontSize: 18,
+  );
+
+  static const dialogActionsTextStyle = TextStyle(
+    color: AppColors.primaryTextColor,
+    fontWeight: FontWeight.w500,
+    fontSize: 18,
+  );
+
   // Button Styles
 
   static ButtonStyle defaultButtonStyle = ElevatedButton.styleFrom(
     padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 20),
     backgroundColor: AppColors.buttonColor,
+  );
+
+  static ButtonStyle outlinedButtonStyle = OutlinedButton.styleFrom(
+    side: const BorderSide(width: 1),
+    foregroundColor: AppColors.primaryColor,
   );
 }

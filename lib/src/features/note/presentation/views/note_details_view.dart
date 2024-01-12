@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
+import '../../../../config/_config.dart';
 import '../../../../localization/_localization.dart';
 import '../../../../resources/_resources.dart';
 import '../../../app/app.dart';
@@ -19,11 +21,13 @@ class NoteDetailsView extends StatefulWidget {
 }
 
 class _NoteDetailsViewState extends State<NoteDetailsView> {
+  int _id = 0;
+
   @override
   void initState() {
     super.initState();
-    final id = int.tryParse(widget.noteId ?? '0');
-    context.read<NoteDetailsBloc>().add(NoteDetailsEvent.get(id: id!));
+    _id = int.tryParse(widget.noteId ?? '0')!;
+    context.read<NoteDetailsBloc>().add(NoteDetailsEvent.get(id: _id));
   }
 
   @override
@@ -93,7 +97,7 @@ class _NoteDetailsViewState extends State<NoteDetailsView> {
           children: [
             Expanded(
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () => _dialogBuilder(context),
                 style: AppStyles.defaultButtonStyle.copyWith(
                   backgroundColor: const MaterialStatePropertyAll(AppColors.deleteColor),
                 ),
@@ -116,7 +120,7 @@ class _NoteDetailsViewState extends State<NoteDetailsView> {
             const SizedBox(width: 8),
             Expanded(
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () => context.pushNamed(AppRoute.noteAddEditRoute, extra: _id),
                 style: AppStyles.defaultButtonStyle,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -137,6 +141,48 @@ class _NoteDetailsViewState extends State<NoteDetailsView> {
           ],
         ),
       ),
+    );
+  }
+
+  Future<void> _dialogBuilder(BuildContext context) {
+    return showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: Text(
+            AppLocale.of(context).deleteNote,
+            style: AppStyles.dialogTitleTextStyle,
+          ),
+          content: Text(
+            AppLocale.of(context).deleteNoteContent,
+            style: AppStyles.dialogContentTextStyle,
+          ),
+          actions: [
+            OutlinedButton(
+              style: AppStyles.outlinedButtonStyle,
+              onPressed: () {
+                context.read<NoteDetailsBloc>().add(NoteDetailsEvent.delete(id: _id));
+                Navigator.pop(context);
+                context.pop();
+              },
+              child: Text(
+                AppLocale.of(context).yes,
+                style: AppStyles.dialogActionsTextStyle,
+              ),
+            ),
+            OutlinedButton(
+              style: AppStyles.outlinedButtonStyle,
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: Text(
+                AppLocale.of(context).no,
+                style: AppStyles.dialogActionsTextStyle,
+              ),
+            ),
+          ],
+        );
+      },
     );
   }
 }

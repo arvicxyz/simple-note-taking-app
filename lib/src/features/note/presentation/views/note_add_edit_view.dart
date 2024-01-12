@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:simple_note_taking_app/src/features/note/domain/entities/note_entity.dart';
 
 import '../../../../localization/_localization.dart';
 import '../../../../resources/_resources.dart';
@@ -7,7 +8,7 @@ import '../../../app/app.dart';
 import '../blocs/_blocs.dart';
 
 class NoteAddEditView extends StatefulWidget {
-  final String? noteId;
+  final int? noteId;
 
   const NoteAddEditView({
     super.key,
@@ -23,16 +24,18 @@ class _NoteAddEditViewState extends State<NoteAddEditView> {
   final _noteFocusNode = FocusNode();
 
   bool _isEdit = false;
+  int _id = 0;
 
   @override
   void initState() {
     super.initState();
     if (widget.noteId != null) {
       _isEdit = true;
-      var id = int.parse(widget.noteId!);
-      context.read<NoteAddEditBloc>().add(NoteAddEditEvent.get(id: id));
+      _id = widget.noteId!;
+      context.read<NoteAddEditBloc>().add(NoteAddEditEvent.get(id: _id));
+    } else {
+      _noteFocusNode.requestFocus();
     }
-    _noteFocusNode.requestFocus();
   }
 
   @override
@@ -124,7 +127,34 @@ class _NoteAddEditViewState extends State<NoteAddEditView> {
         child: SizedBox(
           width: double.infinity,
           child: ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              if (_isEdit) {
+                final bloc = context.read<NoteAddEditBloc>();
+                bloc.add(
+                  NoteAddEditEvent.update(
+                    id: _id,
+                    entity: bloc.state.maybeWhen(
+                      idle: (entity) => entity.copyWith(
+                        note: _noteTextController.text.trim(),
+                      ),
+                      orElse: () => NoteEntity.empty(),
+                    ),
+                  ),
+                );
+              } else {
+                final bloc = context.read<NoteAddEditBloc>();
+                bloc.add(
+                  NoteAddEditEvent.add(
+                    entity: NoteEntity(
+                      id: 0,
+                      note: _noteTextController.text.trim(),
+                      completed: false,
+                      userId: 0,
+                    ),
+                  ),
+                );
+              }
+            },
             style: AppStyles.defaultButtonStyle,
             child: Text(
               AppLocale.of(context).save,
