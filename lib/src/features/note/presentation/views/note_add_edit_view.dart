@@ -26,7 +26,6 @@ class _NoteAddEditViewState extends State<NoteAddEditView> {
 
   bool _isEdit = false;
   String _id = "";
-  String _title = "";
 
   @override
   void initState() {
@@ -45,7 +44,6 @@ class _NoteAddEditViewState extends State<NoteAddEditView> {
     } else {
       _noteFocusNode.requestFocus();
     }
-    _title = _isEdit ? AppLocale.of(context).editNote : AppLocale.of(context).addNote;
   }
 
   @override
@@ -59,7 +57,7 @@ class _NoteAddEditViewState extends State<NoteAddEditView> {
     return Scaffold(
       appBar: MaterialAppBar(
         title: Text(
-          _title,
+          _isEdit ? AppLocale.of(context).editNote : AppLocale.of(context).addNote,
           style: AppStyles.appBarTitleTextStyle,
         ),
       ),
