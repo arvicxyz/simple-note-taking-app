@@ -21,12 +21,12 @@ class NoteDetailsView extends StatefulWidget {
 }
 
 class _NoteDetailsViewState extends State<NoteDetailsView> {
-  int _id = 0;
+  String _id = "";
 
   @override
   void initState() {
     super.initState();
-    _id = int.tryParse(widget.noteId ?? '0')!;
+    _id = widget.noteId ?? "0";
     context.read<NoteDetailsBloc>().add(NoteDetailsEvent.get(id: _id));
   }
 
@@ -38,7 +38,16 @@ class _NoteDetailsViewState extends State<NoteDetailsView> {
         child: BlocConsumer<NoteDetailsBloc, NoteDetailsState>(
           listener: (context, state) {
             state.whenOrNull(
-              success: () {},
+              success: (event) {
+                event.whenOrNull(
+                  delete: (id) {
+                    // Delete successful, then refresh notes list
+                    context.read<NoteListBloc>().add(const NoteListEvent.getAll());
+                    Navigator.pop(context);
+                    context.pop();
+                  },
+                );
+              },
               error: (errorMessage) {
                 var message = AppLocale.of(context).errorServerAccess;
                 if (errorMessage.isNotEmpty) {
@@ -162,8 +171,6 @@ class _NoteDetailsViewState extends State<NoteDetailsView> {
               style: AppStyles.outlinedButtonStyle,
               onPressed: () {
                 context.read<NoteDetailsBloc>().add(NoteDetailsEvent.delete(id: _id));
-                Navigator.pop(context);
-                context.pop();
               },
               child: Text(
                 AppLocale.of(context).yes,

@@ -3,7 +3,7 @@ part of 'note_add_edit_bloc.dart';
 @freezed
 class NoteAddEditEvent with _$NoteAddEditEvent {
   const factory NoteAddEditEvent.get({
-    required int id,
+    required String id,
   }) = _NoteAddEditEventGet;
 
   const factory NoteAddEditEvent.add({
@@ -11,7 +11,7 @@ class NoteAddEditEvent with _$NoteAddEditEvent {
   }) = _NoteAddEditEventAdd;
 
   const factory NoteAddEditEvent.update({
-    required int id,
+    required String id,
     required NoteEntity entity,
   }) = _NoteAddEditEventUpdate;
 }

@@ -16,7 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$NoteEntity {
-  int get id => throw _privateConstructorUsedError;
+  String get id => throw _privateConstructorUsedError;
   String get note => throw _privateConstructorUsedError;
   bool get completed => throw _privateConstructorUsedError;
   int get userId => throw _privateConstructorUsedError;
@@ -35,7 +35,7 @@ abstract class $NoteEntityCopyWith<$Res> {
       _$NoteEntityCopyWithImpl<$Res, NoteEntity>;
   @useResult
   $Res call(
-      {int id,
+      {String id,
       String note,
       bool completed,
       int userId,
@@ -67,7 +67,7 @@ class _$NoteEntityCopyWithImpl<$Res, $Val extends NoteEntity>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       note: null == note
           ? _value.note
           : note // ignore: cast_nullable_to_non_nullable
@@ -101,7 +101,7 @@ abstract class _$$NoteEntityImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {int id,
+      {String id,
       String note,
       bool completed,
       int userId,
@@ -131,7 +131,7 @@ class __$$NoteEntityImplCopyWithImpl<$Res>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       note: null == note
           ? _value.note
           : note // ignore: cast_nullable_to_non_nullable
@@ -168,7 +168,7 @@ class _$NoteEntityImpl implements _NoteEntity {
       this.deletedOn});
 
   @override
-  final int id;
+  final String id;
   @override
   final String note;
   @override
@@ -215,7 +215,7 @@ class _$NoteEntityImpl implements _NoteEntity {
 
 abstract class _NoteEntity implements NoteEntity {
   const factory _NoteEntity(
-      {required final int id,
+      {required final String id,
       required final String note,
       required final bool completed,
       required final int userId,
@@ -223,7 +223,7 @@ abstract class _NoteEntity implements NoteEntity {
       final DateTime? deletedOn}) = _$NoteEntityImpl;
 
   @override
-  int get id;
+  String get id;
   @override
   String get note;
   @override

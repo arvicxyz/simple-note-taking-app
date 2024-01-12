@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:uuid/uuid.dart';
 
 import '../../data/models/_models.dart';
 
@@ -7,7 +8,7 @@ part 'note_entity.freezed.dart';
 @freezed
 class NoteEntity with _$NoteEntity {
   const factory NoteEntity({
-    required int id,
+    required String id,
     required String note,
     required bool completed,
     required int userId,
@@ -15,8 +16,8 @@ class NoteEntity with _$NoteEntity {
     DateTime? deletedOn,
   }) = _NoteEntity;
 
-  factory NoteEntity.empty() => const NoteEntity(
-        id: 0,
+  factory NoteEntity.empty() => NoteEntity(
+        id: const Uuid().v1(),
         note: "",
         completed: false,
         userId: 0,
@@ -24,7 +25,7 @@ class NoteEntity with _$NoteEntity {
 
   factory NoteEntity.fromModel(NoteModel model) {
     return NoteEntity(
-      id: model.id,
+      id: model.id.toString(),
       note: model.note,
       completed: model.completed,
       userId: model.userId,

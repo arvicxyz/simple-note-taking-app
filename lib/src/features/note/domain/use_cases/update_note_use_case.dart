@@ -6,7 +6,7 @@ import '../../../../core/use_cases/_use_cases.dart';
 import '../_domain.dart';
 
 class UpdateNoteUseCaseInput {
-  final int id;
+  final String id;
   final NoteEntity entity;
 
   const UpdateNoteUseCaseInput({

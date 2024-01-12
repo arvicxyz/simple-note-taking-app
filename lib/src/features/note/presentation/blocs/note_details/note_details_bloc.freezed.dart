@@ -16,23 +16,23 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$NoteDetailsEvent {
-  int get id => throw _privateConstructorUsedError;
+  String get id => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int id) get,
-    required TResult Function(int id) delete,
+    required TResult Function(String id) get,
+    required TResult Function(String id) delete,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int id)? get,
-    TResult? Function(int id)? delete,
+    TResult? Function(String id)? get,
+    TResult? Function(String id)? delete,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int id)? get,
-    TResult Function(int id)? delete,
+    TResult Function(String id)? get,
+    TResult Function(String id)? delete,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -67,7 +67,7 @@ abstract class $NoteDetailsEventCopyWith<$Res> {
           NoteDetailsEvent value, $Res Function(NoteDetailsEvent) then) =
       _$NoteDetailsEventCopyWithImpl<$Res, NoteDetailsEvent>;
   @useResult
-  $Res call({int id});
+  $Res call({String id});
 }
 
 /// @nodoc
@@ -89,7 +89,7 @@ class _$NoteDetailsEventCopyWithImpl<$Res, $Val extends NoteDetailsEvent>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
     ) as $Val);
   }
 }
@@ -102,7 +102,7 @@ abstract class _$$NoteDetailsEventGetImplCopyWith<$Res>
       __$$NoteDetailsEventGetImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int id});
+  $Res call({String id});
 }
 
 /// @nodoc
@@ -122,7 +122,7 @@ class __$$NoteDetailsEventGetImplCopyWithImpl<$Res>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
     ));
   }
 }
@@ -133,7 +133,7 @@ class _$NoteDetailsEventGetImpl implements _NoteDetailsEventGet {
   const _$NoteDetailsEventGetImpl({required this.id});
 
   @override
-  final int id;
+  final String id;
 
   @override
   String toString() {
@@ -161,8 +161,8 @@ class _$NoteDetailsEventGetImpl implements _NoteDetailsEventGet {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int id) get,
-    required TResult Function(int id) delete,
+    required TResult Function(String id) get,
+    required TResult Function(String id) delete,
   }) {
     return get(id);
   }
@@ -170,8 +170,8 @@ class _$NoteDetailsEventGetImpl implements _NoteDetailsEventGet {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int id)? get,
-    TResult? Function(int id)? delete,
+    TResult? Function(String id)? get,
+    TResult? Function(String id)? delete,
   }) {
     return get?.call(id);
   }
@@ -179,8 +179,8 @@ class _$NoteDetailsEventGetImpl implements _NoteDetailsEventGet {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int id)? get,
-    TResult Function(int id)? delete,
+    TResult Function(String id)? get,
+    TResult Function(String id)? delete,
     required TResult orElse(),
   }) {
     if (get != null) {
@@ -222,11 +222,11 @@ class _$NoteDetailsEventGetImpl implements _NoteDetailsEventGet {
 }
 
 abstract class _NoteDetailsEventGet implements NoteDetailsEvent {
-  const factory _NoteDetailsEventGet({required final int id}) =
+  const factory _NoteDetailsEventGet({required final String id}) =
       _$NoteDetailsEventGetImpl;
 
   @override
-  int get id;
+  String get id;
   @override
   @JsonKey(ignore: true)
   _$$NoteDetailsEventGetImplCopyWith<_$NoteDetailsEventGetImpl> get copyWith =>
@@ -242,7 +242,7 @@ abstract class _$$NoteDetailsEventDeleteImplCopyWith<$Res>
       __$$NoteDetailsEventDeleteImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int id});
+  $Res call({String id});
 }
 
 /// @nodoc
@@ -263,7 +263,7 @@ class __$$NoteDetailsEventDeleteImplCopyWithImpl<$Res>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
     ));
   }
 }
@@ -274,7 +274,7 @@ class _$NoteDetailsEventDeleteImpl implements _NoteDetailsEventDelete {
   const _$NoteDetailsEventDeleteImpl({required this.id});
 
   @override
-  final int id;
+  final String id;
 
   @override
   String toString() {
@@ -302,8 +302,8 @@ class _$NoteDetailsEventDeleteImpl implements _NoteDetailsEventDelete {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int id) get,
-    required TResult Function(int id) delete,
+    required TResult Function(String id) get,
+    required TResult Function(String id) delete,
   }) {
     return delete(id);
   }
@@ -311,8 +311,8 @@ class _$NoteDetailsEventDeleteImpl implements _NoteDetailsEventDelete {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int id)? get,
-    TResult? Function(int id)? delete,
+    TResult? Function(String id)? get,
+    TResult? Function(String id)? delete,
   }) {
     return delete?.call(id);
   }
@@ -320,8 +320,8 @@ class _$NoteDetailsEventDeleteImpl implements _NoteDetailsEventDelete {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int id)? get,
-    TResult Function(int id)? delete,
+    TResult Function(String id)? get,
+    TResult Function(String id)? delete,
     required TResult orElse(),
   }) {
     if (delete != null) {
@@ -363,11 +363,11 @@ class _$NoteDetailsEventDeleteImpl implements _NoteDetailsEventDelete {
 }
 
 abstract class _NoteDetailsEventDelete implements NoteDetailsEvent {
-  const factory _NoteDetailsEventDelete({required final int id}) =
+  const factory _NoteDetailsEventDelete({required final String id}) =
       _$NoteDetailsEventDeleteImpl;
 
   @override
-  int get id;
+  String get id;
   @override
   @JsonKey(ignore: true)
   _$$NoteDetailsEventDeleteImplCopyWith<_$NoteDetailsEventDeleteImpl>
@@ -380,7 +380,7 @@ mixin _$NoteDetailsState {
   TResult when<TResult extends Object?>({
     required TResult Function(NoteEntity entity) idle,
     required TResult Function() loading,
-    required TResult Function() success,
+    required TResult Function(NoteDetailsEvent event) success,
     required TResult Function(String errorMessage) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -388,7 +388,7 @@ mixin _$NoteDetailsState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(NoteEntity entity)? idle,
     TResult? Function()? loading,
-    TResult? Function()? success,
+    TResult? Function(NoteDetailsEvent event)? success,
     TResult? Function(String errorMessage)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -396,7 +396,7 @@ mixin _$NoteDetailsState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(NoteEntity entity)? idle,
     TResult Function()? loading,
-    TResult Function()? success,
+    TResult Function(NoteDetailsEvent event)? success,
     TResult Function(String errorMessage)? error,
     required TResult orElse(),
   }) =>
@@ -524,7 +524,7 @@ class _$NoteDetailsStateIdleImpl implements _NoteDetailsStateIdle {
   TResult when<TResult extends Object?>({
     required TResult Function(NoteEntity entity) idle,
     required TResult Function() loading,
-    required TResult Function() success,
+    required TResult Function(NoteDetailsEvent event) success,
     required TResult Function(String errorMessage) error,
   }) {
     return idle(entity);
@@ -535,7 +535,7 @@ class _$NoteDetailsStateIdleImpl implements _NoteDetailsStateIdle {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(NoteEntity entity)? idle,
     TResult? Function()? loading,
-    TResult? Function()? success,
+    TResult? Function(NoteDetailsEvent event)? success,
     TResult? Function(String errorMessage)? error,
   }) {
     return idle?.call(entity);
@@ -546,7 +546,7 @@ class _$NoteDetailsStateIdleImpl implements _NoteDetailsStateIdle {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(NoteEntity entity)? idle,
     TResult Function()? loading,
-    TResult Function()? success,
+    TResult Function(NoteDetailsEvent event)? success,
     TResult Function(String errorMessage)? error,
     required TResult orElse(),
   }) {
@@ -647,7 +647,7 @@ class _$NoteDetailsStateLoadingImpl implements _NoteDetailsStateLoading {
   TResult when<TResult extends Object?>({
     required TResult Function(NoteEntity entity) idle,
     required TResult Function() loading,
-    required TResult Function() success,
+    required TResult Function(NoteDetailsEvent event) success,
     required TResult Function(String errorMessage) error,
   }) {
     return loading();
@@ -658,7 +658,7 @@ class _$NoteDetailsStateLoadingImpl implements _NoteDetailsStateLoading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(NoteEntity entity)? idle,
     TResult? Function()? loading,
-    TResult? Function()? success,
+    TResult? Function(NoteDetailsEvent event)? success,
     TResult? Function(String errorMessage)? error,
   }) {
     return loading?.call();
@@ -669,7 +669,7 @@ class _$NoteDetailsStateLoadingImpl implements _NoteDetailsStateLoading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(NoteEntity entity)? idle,
     TResult Function()? loading,
-    TResult Function()? success,
+    TResult Function(NoteDetailsEvent event)? success,
     TResult Function(String errorMessage)? error,
     required TResult orElse(),
   }) {
@@ -727,6 +727,10 @@ abstract class _$$NoteDetailsStateSuccessImplCopyWith<$Res> {
           _$NoteDetailsStateSuccessImpl value,
           $Res Function(_$NoteDetailsStateSuccessImpl) then) =
       __$$NoteDetailsStateSuccessImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({NoteDetailsEvent event});
+
+  $NoteDetailsEventCopyWith<$Res> get event;
 }
 
 /// @nodoc
@@ -737,37 +741,69 @@ class __$$NoteDetailsStateSuccessImplCopyWithImpl<$Res>
       _$NoteDetailsStateSuccessImpl _value,
       $Res Function(_$NoteDetailsStateSuccessImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? event = null,
+  }) {
+    return _then(_$NoteDetailsStateSuccessImpl(
+      event: null == event
+          ? _value.event
+          : event // ignore: cast_nullable_to_non_nullable
+              as NoteDetailsEvent,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $NoteDetailsEventCopyWith<$Res> get event {
+    return $NoteDetailsEventCopyWith<$Res>(_value.event, (value) {
+      return _then(_value.copyWith(event: value));
+    });
+  }
 }
 
 /// @nodoc
 
 class _$NoteDetailsStateSuccessImpl implements _NoteDetailsStateSuccess {
-  const _$NoteDetailsStateSuccessImpl();
+  const _$NoteDetailsStateSuccessImpl({required this.event});
+
+  @override
+  final NoteDetailsEvent event;
 
   @override
   String toString() {
-    return 'NoteDetailsState.success()';
+    return 'NoteDetailsState.success(event: $event)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$NoteDetailsStateSuccessImpl);
+            other is _$NoteDetailsStateSuccessImpl &&
+            (identical(other.event, event) || other.event == event));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, event);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$NoteDetailsStateSuccessImplCopyWith<_$NoteDetailsStateSuccessImpl>
+      get copyWith => __$$NoteDetailsStateSuccessImplCopyWithImpl<
+          _$NoteDetailsStateSuccessImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(NoteEntity entity) idle,
     required TResult Function() loading,
-    required TResult Function() success,
+    required TResult Function(NoteDetailsEvent event) success,
     required TResult Function(String errorMessage) error,
   }) {
-    return success();
+    return success(event);
   }
 
   @override
@@ -775,10 +811,10 @@ class _$NoteDetailsStateSuccessImpl implements _NoteDetailsStateSuccess {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(NoteEntity entity)? idle,
     TResult? Function()? loading,
-    TResult? Function()? success,
+    TResult? Function(NoteDetailsEvent event)? success,
     TResult? Function(String errorMessage)? error,
   }) {
-    return success?.call();
+    return success?.call(event);
   }
 
   @override
@@ -786,12 +822,12 @@ class _$NoteDetailsStateSuccessImpl implements _NoteDetailsStateSuccess {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(NoteEntity entity)? idle,
     TResult Function()? loading,
-    TResult Function()? success,
+    TResult Function(NoteDetailsEvent event)? success,
     TResult Function(String errorMessage)? error,
     required TResult orElse(),
   }) {
     if (success != null) {
-      return success();
+      return success(event);
     }
     return orElse();
   }
@@ -835,7 +871,13 @@ class _$NoteDetailsStateSuccessImpl implements _NoteDetailsStateSuccess {
 }
 
 abstract class _NoteDetailsStateSuccess implements NoteDetailsState {
-  const factory _NoteDetailsStateSuccess() = _$NoteDetailsStateSuccessImpl;
+  const factory _NoteDetailsStateSuccess(
+      {required final NoteDetailsEvent event}) = _$NoteDetailsStateSuccessImpl;
+
+  NoteDetailsEvent get event;
+  @JsonKey(ignore: true)
+  _$$NoteDetailsStateSuccessImplCopyWith<_$NoteDetailsStateSuccessImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -907,7 +949,7 @@ class _$NoteDetailsStateErrorImpl implements _NoteDetailsStateError {
   TResult when<TResult extends Object?>({
     required TResult Function(NoteEntity entity) idle,
     required TResult Function() loading,
-    required TResult Function() success,
+    required TResult Function(NoteDetailsEvent event) success,
     required TResult Function(String errorMessage) error,
   }) {
     return error(errorMessage);
@@ -918,7 +960,7 @@ class _$NoteDetailsStateErrorImpl implements _NoteDetailsStateError {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(NoteEntity entity)? idle,
     TResult? Function()? loading,
-    TResult? Function()? success,
+    TResult? Function(NoteDetailsEvent event)? success,
     TResult? Function(String errorMessage)? error,
   }) {
     return error?.call(errorMessage);
@@ -929,7 +971,7 @@ class _$NoteDetailsStateErrorImpl implements _NoteDetailsStateError {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(NoteEntity entity)? idle,
     TResult Function()? loading,
-    TResult Function()? success,
+    TResult Function(NoteDetailsEvent event)? success,
     TResult Function(String errorMessage)? error,
     required TResult orElse(),
   }) {

@@ -25,7 +25,14 @@ class NoteListView extends StatelessWidget {
         child: BlocConsumer<NoteListBloc, NoteListState>(
           listener: (context, state) {
             state.whenOrNull(
-              success: () {},
+              success: (event) {
+                event.whenOrNull(
+                  delete: (id) {
+                    // Delete successful, then refresh notes list
+                    context.read<NoteListBloc>().add(const NoteListEvent.getAll());
+                  },
+                );
+              },
               error: (errorMessage) {
                 var message = AppLocale.of(context).errorServerAccess;
                 if (errorMessage.isNotEmpty) {

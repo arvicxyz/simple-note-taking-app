@@ -18,23 +18,23 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$NoteAddEditEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int id) get,
+    required TResult Function(String id) get,
     required TResult Function(NoteEntity entity) add,
-    required TResult Function(int id, NoteEntity entity) update,
+    required TResult Function(String id, NoteEntity entity) update,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int id)? get,
+    TResult? Function(String id)? get,
     TResult? Function(NoteEntity entity)? add,
-    TResult? Function(int id, NoteEntity entity)? update,
+    TResult? Function(String id, NoteEntity entity)? update,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int id)? get,
+    TResult Function(String id)? get,
     TResult Function(NoteEntity entity)? add,
-    TResult Function(int id, NoteEntity entity)? update,
+    TResult Function(String id, NoteEntity entity)? update,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -86,7 +86,7 @@ abstract class _$$NoteAddEditEventGetImplCopyWith<$Res> {
           $Res Function(_$NoteAddEditEventGetImpl) then) =
       __$$NoteAddEditEventGetImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({int id});
+  $Res call({String id});
 }
 
 /// @nodoc
@@ -106,7 +106,7 @@ class __$$NoteAddEditEventGetImplCopyWithImpl<$Res>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
     ));
   }
 }
@@ -117,7 +117,7 @@ class _$NoteAddEditEventGetImpl implements _NoteAddEditEventGet {
   const _$NoteAddEditEventGetImpl({required this.id});
 
   @override
-  final int id;
+  final String id;
 
   @override
   String toString() {
@@ -145,9 +145,9 @@ class _$NoteAddEditEventGetImpl implements _NoteAddEditEventGet {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int id) get,
+    required TResult Function(String id) get,
     required TResult Function(NoteEntity entity) add,
-    required TResult Function(int id, NoteEntity entity) update,
+    required TResult Function(String id, NoteEntity entity) update,
   }) {
     return get(id);
   }
@@ -155,9 +155,9 @@ class _$NoteAddEditEventGetImpl implements _NoteAddEditEventGet {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int id)? get,
+    TResult? Function(String id)? get,
     TResult? Function(NoteEntity entity)? add,
-    TResult? Function(int id, NoteEntity entity)? update,
+    TResult? Function(String id, NoteEntity entity)? update,
   }) {
     return get?.call(id);
   }
@@ -165,9 +165,9 @@ class _$NoteAddEditEventGetImpl implements _NoteAddEditEventGet {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int id)? get,
+    TResult Function(String id)? get,
     TResult Function(NoteEntity entity)? add,
-    TResult Function(int id, NoteEntity entity)? update,
+    TResult Function(String id, NoteEntity entity)? update,
     required TResult orElse(),
   }) {
     if (get != null) {
@@ -212,10 +212,10 @@ class _$NoteAddEditEventGetImpl implements _NoteAddEditEventGet {
 }
 
 abstract class _NoteAddEditEventGet implements NoteAddEditEvent {
-  const factory _NoteAddEditEventGet({required final int id}) =
+  const factory _NoteAddEditEventGet({required final String id}) =
       _$NoteAddEditEventGetImpl;
 
-  int get id;
+  String get id;
   @JsonKey(ignore: true)
   _$$NoteAddEditEventGetImplCopyWith<_$NoteAddEditEventGetImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -296,9 +296,9 @@ class _$NoteAddEditEventAddImpl implements _NoteAddEditEventAdd {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int id) get,
+    required TResult Function(String id) get,
     required TResult Function(NoteEntity entity) add,
-    required TResult Function(int id, NoteEntity entity) update,
+    required TResult Function(String id, NoteEntity entity) update,
   }) {
     return add(entity);
   }
@@ -306,9 +306,9 @@ class _$NoteAddEditEventAddImpl implements _NoteAddEditEventAdd {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int id)? get,
+    TResult? Function(String id)? get,
     TResult? Function(NoteEntity entity)? add,
-    TResult? Function(int id, NoteEntity entity)? update,
+    TResult? Function(String id, NoteEntity entity)? update,
   }) {
     return add?.call(entity);
   }
@@ -316,9 +316,9 @@ class _$NoteAddEditEventAddImpl implements _NoteAddEditEventAdd {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int id)? get,
+    TResult Function(String id)? get,
     TResult Function(NoteEntity entity)? add,
-    TResult Function(int id, NoteEntity entity)? update,
+    TResult Function(String id, NoteEntity entity)? update,
     required TResult orElse(),
   }) {
     if (add != null) {
@@ -379,7 +379,7 @@ abstract class _$$NoteAddEditEventUpdateImplCopyWith<$Res> {
           $Res Function(_$NoteAddEditEventUpdateImpl) then) =
       __$$NoteAddEditEventUpdateImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({int id, NoteEntity entity});
+  $Res call({String id, NoteEntity entity});
 
   $NoteEntityCopyWith<$Res> get entity;
 }
@@ -403,7 +403,7 @@ class __$$NoteAddEditEventUpdateImplCopyWithImpl<$Res>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       entity: null == entity
           ? _value.entity
           : entity // ignore: cast_nullable_to_non_nullable
@@ -426,7 +426,7 @@ class _$NoteAddEditEventUpdateImpl implements _NoteAddEditEventUpdate {
   const _$NoteAddEditEventUpdateImpl({required this.id, required this.entity});
 
   @override
-  final int id;
+  final String id;
   @override
   final NoteEntity entity;
 
@@ -457,9 +457,9 @@ class _$NoteAddEditEventUpdateImpl implements _NoteAddEditEventUpdate {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int id) get,
+    required TResult Function(String id) get,
     required TResult Function(NoteEntity entity) add,
-    required TResult Function(int id, NoteEntity entity) update,
+    required TResult Function(String id, NoteEntity entity) update,
   }) {
     return update(id, entity);
   }
@@ -467,9 +467,9 @@ class _$NoteAddEditEventUpdateImpl implements _NoteAddEditEventUpdate {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int id)? get,
+    TResult? Function(String id)? get,
     TResult? Function(NoteEntity entity)? add,
-    TResult? Function(int id, NoteEntity entity)? update,
+    TResult? Function(String id, NoteEntity entity)? update,
   }) {
     return update?.call(id, entity);
   }
@@ -477,9 +477,9 @@ class _$NoteAddEditEventUpdateImpl implements _NoteAddEditEventUpdate {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int id)? get,
+    TResult Function(String id)? get,
     TResult Function(NoteEntity entity)? add,
-    TResult Function(int id, NoteEntity entity)? update,
+    TResult Function(String id, NoteEntity entity)? update,
     required TResult orElse(),
   }) {
     if (update != null) {
@@ -525,10 +525,10 @@ class _$NoteAddEditEventUpdateImpl implements _NoteAddEditEventUpdate {
 
 abstract class _NoteAddEditEventUpdate implements NoteAddEditEvent {
   const factory _NoteAddEditEventUpdate(
-      {required final int id,
+      {required final String id,
       required final NoteEntity entity}) = _$NoteAddEditEventUpdateImpl;
 
-  int get id;
+  String get id;
   NoteEntity get entity;
   @JsonKey(ignore: true)
   _$$NoteAddEditEventUpdateImplCopyWith<_$NoteAddEditEventUpdateImpl>
@@ -541,7 +541,7 @@ mixin _$NoteAddEditState {
   TResult when<TResult extends Object?>({
     required TResult Function(NoteEntity entity) idle,
     required TResult Function() loading,
-    required TResult Function() success,
+    required TResult Function(NoteAddEditEvent event) success,
     required TResult Function(String errorMessage) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -549,7 +549,7 @@ mixin _$NoteAddEditState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(NoteEntity entity)? idle,
     TResult? Function()? loading,
-    TResult? Function()? success,
+    TResult? Function(NoteAddEditEvent event)? success,
     TResult? Function(String errorMessage)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -557,7 +557,7 @@ mixin _$NoteAddEditState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(NoteEntity entity)? idle,
     TResult Function()? loading,
-    TResult Function()? success,
+    TResult Function(NoteAddEditEvent event)? success,
     TResult Function(String errorMessage)? error,
     required TResult orElse(),
   }) =>
@@ -685,7 +685,7 @@ class _$NoteAddEditStateIdleImpl implements _NoteAddEditStateIdle {
   TResult when<TResult extends Object?>({
     required TResult Function(NoteEntity entity) idle,
     required TResult Function() loading,
-    required TResult Function() success,
+    required TResult Function(NoteAddEditEvent event) success,
     required TResult Function(String errorMessage) error,
   }) {
     return idle(entity);
@@ -696,7 +696,7 @@ class _$NoteAddEditStateIdleImpl implements _NoteAddEditStateIdle {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(NoteEntity entity)? idle,
     TResult? Function()? loading,
-    TResult? Function()? success,
+    TResult? Function(NoteAddEditEvent event)? success,
     TResult? Function(String errorMessage)? error,
   }) {
     return idle?.call(entity);
@@ -707,7 +707,7 @@ class _$NoteAddEditStateIdleImpl implements _NoteAddEditStateIdle {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(NoteEntity entity)? idle,
     TResult Function()? loading,
-    TResult Function()? success,
+    TResult Function(NoteAddEditEvent event)? success,
     TResult Function(String errorMessage)? error,
     required TResult orElse(),
   }) {
@@ -808,7 +808,7 @@ class _$NoteAddEditStateLoadingImpl implements _NoteAddEditStateLoading {
   TResult when<TResult extends Object?>({
     required TResult Function(NoteEntity entity) idle,
     required TResult Function() loading,
-    required TResult Function() success,
+    required TResult Function(NoteAddEditEvent event) success,
     required TResult Function(String errorMessage) error,
   }) {
     return loading();
@@ -819,7 +819,7 @@ class _$NoteAddEditStateLoadingImpl implements _NoteAddEditStateLoading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(NoteEntity entity)? idle,
     TResult? Function()? loading,
-    TResult? Function()? success,
+    TResult? Function(NoteAddEditEvent event)? success,
     TResult? Function(String errorMessage)? error,
   }) {
     return loading?.call();
@@ -830,7 +830,7 @@ class _$NoteAddEditStateLoadingImpl implements _NoteAddEditStateLoading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(NoteEntity entity)? idle,
     TResult Function()? loading,
-    TResult Function()? success,
+    TResult Function(NoteAddEditEvent event)? success,
     TResult Function(String errorMessage)? error,
     required TResult orElse(),
   }) {
@@ -888,6 +888,10 @@ abstract class _$$NoteAddEditStateSuccessImplCopyWith<$Res> {
           _$NoteAddEditStateSuccessImpl value,
           $Res Function(_$NoteAddEditStateSuccessImpl) then) =
       __$$NoteAddEditStateSuccessImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({NoteAddEditEvent event});
+
+  $NoteAddEditEventCopyWith<$Res> get event;
 }
 
 /// @nodoc
@@ -898,37 +902,69 @@ class __$$NoteAddEditStateSuccessImplCopyWithImpl<$Res>
       _$NoteAddEditStateSuccessImpl _value,
       $Res Function(_$NoteAddEditStateSuccessImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? event = null,
+  }) {
+    return _then(_$NoteAddEditStateSuccessImpl(
+      event: null == event
+          ? _value.event
+          : event // ignore: cast_nullable_to_non_nullable
+              as NoteAddEditEvent,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $NoteAddEditEventCopyWith<$Res> get event {
+    return $NoteAddEditEventCopyWith<$Res>(_value.event, (value) {
+      return _then(_value.copyWith(event: value));
+    });
+  }
 }
 
 /// @nodoc
 
 class _$NoteAddEditStateSuccessImpl implements _NoteAddEditStateSuccess {
-  const _$NoteAddEditStateSuccessImpl();
+  const _$NoteAddEditStateSuccessImpl({required this.event});
+
+  @override
+  final NoteAddEditEvent event;
 
   @override
   String toString() {
-    return 'NoteAddEditState.success()';
+    return 'NoteAddEditState.success(event: $event)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$NoteAddEditStateSuccessImpl);
+            other is _$NoteAddEditStateSuccessImpl &&
+            (identical(other.event, event) || other.event == event));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, event);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$NoteAddEditStateSuccessImplCopyWith<_$NoteAddEditStateSuccessImpl>
+      get copyWith => __$$NoteAddEditStateSuccessImplCopyWithImpl<
+          _$NoteAddEditStateSuccessImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(NoteEntity entity) idle,
     required TResult Function() loading,
-    required TResult Function() success,
+    required TResult Function(NoteAddEditEvent event) success,
     required TResult Function(String errorMessage) error,
   }) {
-    return success();
+    return success(event);
   }
 
   @override
@@ -936,10 +972,10 @@ class _$NoteAddEditStateSuccessImpl implements _NoteAddEditStateSuccess {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(NoteEntity entity)? idle,
     TResult? Function()? loading,
-    TResult? Function()? success,
+    TResult? Function(NoteAddEditEvent event)? success,
     TResult? Function(String errorMessage)? error,
   }) {
-    return success?.call();
+    return success?.call(event);
   }
 
   @override
@@ -947,12 +983,12 @@ class _$NoteAddEditStateSuccessImpl implements _NoteAddEditStateSuccess {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(NoteEntity entity)? idle,
     TResult Function()? loading,
-    TResult Function()? success,
+    TResult Function(NoteAddEditEvent event)? success,
     TResult Function(String errorMessage)? error,
     required TResult orElse(),
   }) {
     if (success != null) {
-      return success();
+      return success(event);
     }
     return orElse();
   }
@@ -996,7 +1032,13 @@ class _$NoteAddEditStateSuccessImpl implements _NoteAddEditStateSuccess {
 }
 
 abstract class _NoteAddEditStateSuccess implements NoteAddEditState {
-  const factory _NoteAddEditStateSuccess() = _$NoteAddEditStateSuccessImpl;
+  const factory _NoteAddEditStateSuccess(
+      {required final NoteAddEditEvent event}) = _$NoteAddEditStateSuccessImpl;
+
+  NoteAddEditEvent get event;
+  @JsonKey(ignore: true)
+  _$$NoteAddEditStateSuccessImplCopyWith<_$NoteAddEditStateSuccessImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1068,7 +1110,7 @@ class _$NoteAddEditStateErrorImpl implements _NoteAddEditStateError {
   TResult when<TResult extends Object?>({
     required TResult Function(NoteEntity entity) idle,
     required TResult Function() loading,
-    required TResult Function() success,
+    required TResult Function(NoteAddEditEvent event) success,
     required TResult Function(String errorMessage) error,
   }) {
     return error(errorMessage);
@@ -1079,7 +1121,7 @@ class _$NoteAddEditStateErrorImpl implements _NoteAddEditStateError {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(NoteEntity entity)? idle,
     TResult? Function()? loading,
-    TResult? Function()? success,
+    TResult? Function(NoteAddEditEvent event)? success,
     TResult? Function(String errorMessage)? error,
   }) {
     return error?.call(errorMessage);
@@ -1090,7 +1132,7 @@ class _$NoteAddEditStateErrorImpl implements _NoteAddEditStateError {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(NoteEntity entity)? idle,
     TResult Function()? loading,
-    TResult Function()? success,
+    TResult Function(NoteAddEditEvent event)? success,
     TResult Function(String errorMessage)? error,
     required TResult orElse(),
   }) {

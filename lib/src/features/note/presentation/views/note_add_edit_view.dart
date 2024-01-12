@@ -9,7 +9,7 @@ import '../../../app/app.dart';
 import '../blocs/_blocs.dart';
 
 class NoteAddEditView extends StatefulWidget {
-  final int? noteId;
+  final String? noteId;
 
   const NoteAddEditView({
     super.key,
@@ -25,7 +25,7 @@ class _NoteAddEditViewState extends State<NoteAddEditView> {
   final _noteFocusNode = FocusNode();
 
   bool _isEdit = false;
-  int _id = 0;
+  String _id = "";
 
   @override
   void initState() {
@@ -52,11 +52,26 @@ class _NoteAddEditViewState extends State<NoteAddEditView> {
         child: BlocConsumer<NoteAddEditBloc, NoteAddEditState>(
           listener: (context, state) {
             state.whenOrNull(
-              success: () {
-                // Add successful, then refresh notes list
-                context.read<NoteListBloc>().add(const NoteListEvent.getAll());
-                _noteFocusNode.unfocus();
-                Future.delayed(const Duration(milliseconds: 200)).then((value) => context.pop());
+              success: (event) {
+                event.whenOrNull(
+                  add: (entity) {
+                    // Add successful, refresh notes list
+                    context.read<NoteListBloc>().add(const NoteListEvent.getAll());
+                    _noteFocusNode.unfocus();
+                    Future.delayed(const Duration(milliseconds: 200)).then(
+                      (value) => context.pop(),
+                    );
+                  },
+                  update: (id, entity) {
+                    // Update successful, refresh selected note and notes list
+                    context.read<NoteDetailsBloc>().add(NoteDetailsEvent.get(id: id));
+                    context.read<NoteListBloc>().add(const NoteListEvent.getAll());
+                    _noteFocusNode.unfocus();
+                    Future.delayed(const Duration(milliseconds: 200)).then(
+                      (value) => context.pop(),
+                    );
+                  },
+                );
               },
               error: (errorMessage) {
                 var message = AppLocale.of(context).errorServerAccess;
@@ -152,11 +167,8 @@ class _NoteAddEditViewState extends State<NoteAddEditView> {
                 final bloc = context.read<NoteAddEditBloc>();
                 bloc.add(
                   NoteAddEditEvent.add(
-                    entity: NoteEntity(
-                      id: 0,
+                    entity: NoteEntity.empty().copyWith(
                       note: note,
-                      completed: false,
-                      userId: 0,
                     ),
                   ),
                 );

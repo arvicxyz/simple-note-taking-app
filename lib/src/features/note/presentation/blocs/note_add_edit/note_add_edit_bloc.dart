@@ -48,7 +48,7 @@ class NoteAddEditBloc extends Bloc<NoteAddEditEvent, NoteAddEditState> {
         (data) {
           AppLogger.logInfo(data);
 
-          emit(const NoteAddEditState.success());
+          emit(NoteAddEditState.success(event: event));
           emit(NoteAddEditState.idle(entity: data));
         },
       );
@@ -79,7 +79,7 @@ class NoteAddEditBloc extends Bloc<NoteAddEditEvent, NoteAddEditState> {
           emit(state);
         },
         (data) {
-          emit(const NoteAddEditState.success());
+          emit(NoteAddEditState.success(event: event));
           emit(state);
         },
       );
@@ -110,7 +110,7 @@ class NoteAddEditBloc extends Bloc<NoteAddEditEvent, NoteAddEditState> {
           emit(state);
         },
         (data) {
-          emit(const NoteAddEditState.success());
+          emit(NoteAddEditState.success(event: event));
           emit(state);
         },
       );

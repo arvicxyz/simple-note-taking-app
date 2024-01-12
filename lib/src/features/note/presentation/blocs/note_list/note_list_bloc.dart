@@ -46,7 +46,7 @@ class NoteListBloc extends Bloc<NoteListEvent, NoteListState> {
           AppLogger.logInfo(data);
           _entityList = data.reversed.toList();
 
-          emit(const NoteListState.success());
+          emit(NoteListState.success(event: event));
           emit(NoteListState.idle(entityList: _entityList));
         },
       );
@@ -73,7 +73,7 @@ class NoteListBloc extends Bloc<NoteListEvent, NoteListState> {
         (data) {
           _entityList.removeWhere((element) => element.id == id);
 
-          emit(const NoteListState.success());
+          emit(NoteListState.success(event: event));
           emit(state.copyWith(entityList: _entityList));
         },
       );

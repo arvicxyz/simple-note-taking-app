@@ -25,6 +25,9 @@ class _NoteRepositoryImpl implements NoteRepositoryImpl {
   final NoteRemoteSource remoteSource;
   final NetworkInfo networkInfo;
 
+  // TODO: Remove when API is fixed, due to mismatch on API data types
+  final bool _enableApi = false;
+
   const _NoteRepositoryImpl({
     required this.localSource,
     required this.remoteSource,
@@ -33,7 +36,7 @@ class _NoteRepositoryImpl implements NoteRepositoryImpl {
 
   @override
   Future<Either<Failure, List<NoteEntity>>> getAllNote() async {
-    if (await networkInfo.isConnected) {
+    if (await networkInfo.isConnected && _enableApi) {
       const errorPath = 'remoteSource.getNoteApiService.getAllNote';
       try {
         final remote = await remoteSource.getNoteApiService.getAllNote();
@@ -77,17 +80,16 @@ class _NoteRepositoryImpl implements NoteRepositoryImpl {
   }
 
   @override
-  Future<Either<Failure, NoteEntity>> getNote({required int id}) async {
-    if (await networkInfo.isConnected) {
+  Future<Either<Failure, NoteEntity>> getNote({required String id}) async {
+    if (await networkInfo.isConnected && _enableApi) {
       const errorPath = 'remoteSource.getNoteApiService.getNote';
       try {
-        final remote = await remoteSource.getNoteApiService.getNote(id: id);
+        final remote = await remoteSource.getNoteApiService.getNote(id: 1);
         if (remote == null) {
           const errorMessage = 'Failed to get data from remote source in $errorPath';
           return Left(_getServerFailure(errorMessage));
         }
         // Success
-        localSource.setCache(remote);
         return Right(NoteEntity.fromModel(remote));
       } on ServerException {
         const errorMessage = 'A server exception has occured in $errorPath';
@@ -102,7 +104,7 @@ class _NoteRepositoryImpl implements NoteRepositoryImpl {
     } else {
       const errorPath = 'localSource.getCache';
       try {
-        final local = await localSource.getCache();
+        final local = await localSource.getFromCacheList(id);
         if (local == null) {
           const errorMessage = 'Failed to get cache from local source in $errorPath';
           return Left(_getCacheFailure(errorMessage));
@@ -121,7 +123,7 @@ class _NoteRepositoryImpl implements NoteRepositoryImpl {
 
   @override
   Future<Either<Failure, bool>> addNote({required NoteEntity entity}) async {
-    if (await networkInfo.isConnected) {
+    if (await networkInfo.isConnected && _enableApi) {
       const errorPath = 'remoteSource.getNoteApiService.addNote';
       try {
         final requestModel = NoteAddRequestModel(
@@ -168,15 +170,15 @@ class _NoteRepositoryImpl implements NoteRepositoryImpl {
   }
 
   @override
-  Future<Either<Failure, bool>> updateNote({required int id, required NoteEntity entity}) async {
-    if (await networkInfo.isConnected) {
+  Future<Either<Failure, bool>> updateNote({required String id, required NoteEntity entity}) async {
+    if (await networkInfo.isConnected && _enableApi) {
       const errorPath = 'remoteSource.getNoteApiService.updateNote';
       try {
         final requestModel = NoteUpdateRequestModel(
           note: entity.note,
           completed: entity.completed,
         );
-        final remote = await remoteSource.getNoteApiService.updateNote(id: id, model: requestModel);
+        final remote = await remoteSource.getNoteApiService.updateNote(id: 1, model: requestModel);
         if (remote == null) {
           const errorMessage = 'Failed to get data from remote source in $errorPath';
           return Left(_getServerFailure(errorMessage));
@@ -215,17 +217,17 @@ class _NoteRepositoryImpl implements NoteRepositoryImpl {
   }
 
   @override
-  Future<Either<Failure, bool>> deleteNote({required int id}) async {
-    if (await networkInfo.isConnected) {
+  Future<Either<Failure, bool>> deleteNote({required String id}) async {
+    if (await networkInfo.isConnected && _enableApi) {
       const errorPath = 'remoteSource.getNoteApiService.deleteNote';
       try {
-        final remote = await remoteSource.getNoteApiService.deleteNote(id: id);
+        final remote = await remoteSource.getNoteApiService.deleteNote(id: 1);
         if (remote == null) {
           const errorMessage = 'Failed to get data from remote source in $errorPath';
           return Left(_getServerFailure(errorMessage));
         }
         // Success
-        localSource.deleteFromCacheList(remote.id);
+        localSource.deleteFromCacheList(remote.id.toString());
         return const Right(true);
       } on ServerException {
         const errorMessage = 'A server exception has occured in $errorPath';

@@ -45,7 +45,7 @@ class NoteDetailsBloc extends Bloc<NoteDetailsEvent, NoteDetailsState> {
         (data) {
           AppLogger.logInfo(data);
 
-          emit(const NoteDetailsState.success());
+          emit(NoteDetailsState.success(event: event));
           emit(NoteDetailsState.idle(entity: data));
         },
       );
@@ -70,7 +70,7 @@ class NoteDetailsBloc extends Bloc<NoteDetailsEvent, NoteDetailsState> {
           emit(state);
         },
         (data) {
-          emit(const NoteDetailsState.success());
+          emit(NoteDetailsState.success(event: event));
           emit(state);
         },
       );

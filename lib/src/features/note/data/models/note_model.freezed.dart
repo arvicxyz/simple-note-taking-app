@@ -20,7 +20,7 @@ NoteModel _$NoteModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$NoteModel {
-  int get id => throw _privateConstructorUsedError;
+  String get id => throw _privateConstructorUsedError;
   @JsonKey(name: 'todo')
   String get note => throw _privateConstructorUsedError;
   bool get completed => throw _privateConstructorUsedError;
@@ -40,7 +40,7 @@ abstract class $NoteModelCopyWith<$Res> {
       _$NoteModelCopyWithImpl<$Res, NoteModel>;
   @useResult
   $Res call(
-      {int id,
+      {String id,
       @JsonKey(name: 'todo') String note,
       bool completed,
       int userId,
@@ -72,7 +72,7 @@ class _$NoteModelCopyWithImpl<$Res, $Val extends NoteModel>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       note: null == note
           ? _value.note
           : note // ignore: cast_nullable_to_non_nullable
@@ -106,7 +106,7 @@ abstract class _$$NoteModelImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {int id,
+      {String id,
       @JsonKey(name: 'todo') String note,
       bool completed,
       int userId,
@@ -136,7 +136,7 @@ class __$$NoteModelImplCopyWithImpl<$Res>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       note: null == note
           ? _value.note
           : note // ignore: cast_nullable_to_non_nullable
@@ -176,7 +176,7 @@ class _$NoteModelImpl implements _NoteModel {
       _$$NoteModelImplFromJson(json);
 
   @override
-  final int id;
+  final String id;
   @override
   @JsonKey(name: 'todo')
   final String note;
@@ -232,7 +232,7 @@ class _$NoteModelImpl implements _NoteModel {
 
 abstract class _NoteModel implements NoteModel {
   const factory _NoteModel(
-      {required final int id,
+      {required final String id,
       @JsonKey(name: 'todo') required final String note,
       required final bool completed,
       required final int userId,
@@ -243,7 +243,7 @@ abstract class _NoteModel implements NoteModel {
       _$NoteModelImpl.fromJson;
 
   @override
-  int get id;
+  String get id;
   @override
   @JsonKey(name: 'todo')
   String get note;

@@ -8,7 +8,7 @@ part of 'note_model.dart';
 
 _$NoteModelImpl _$$NoteModelImplFromJson(Map<String, dynamic> json) =>
     _$NoteModelImpl(
-      id: json['id'] as int,
+      id: json['id'] as String,
       note: json['todo'] as String,
       completed: json['completed'] as bool,
       userId: json['userId'] as int,

@@ -27,7 +27,7 @@ class AppRoute {
             name: noteAddEditRoute,
             path: noteAddEditRoute,
             builder: (context, state) => NoteAddEditView(
-              noteId: state.extra as int?,
+              noteId: state.extra as String?,
             ),
           ),
         ],
