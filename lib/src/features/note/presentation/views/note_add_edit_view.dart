@@ -26,6 +26,7 @@ class _NoteAddEditViewState extends State<NoteAddEditView> {
 
   bool _isEdit = false;
   String _id = "";
+  String _title = "";
 
   @override
   void initState() {
@@ -33,10 +34,24 @@ class _NoteAddEditViewState extends State<NoteAddEditView> {
     if (widget.noteId != null) {
       _isEdit = true;
       _id = widget.noteId!;
-      context.read<NoteAddEditBloc>().add(NoteAddEditEvent.get(id: _id));
+
+      final bloc = context.read<NoteAddEditBloc>();
+      bloc.add(NoteAddEditEvent.get(id: _id));
+      bloc.state.whenOrNull(
+        idle: (entity) {
+          _noteTextController.text = entity.note;
+        },
+      );
     } else {
       _noteFocusNode.requestFocus();
     }
+    _title = _isEdit ? AppLocale.of(context).editNote : AppLocale.of(context).addNote;
+  }
+
+  @override
+  void dispose() {
+    _noteTextController.dispose();
+    super.dispose();
   }
 
   @override
@@ -44,7 +59,7 @@ class _NoteAddEditViewState extends State<NoteAddEditView> {
     return Scaffold(
       appBar: MaterialAppBar(
         title: Text(
-          _isEdit ? AppLocale.of(context).editNote : AppLocale.of(context).addNote,
+          _title,
           style: AppStyles.appBarTitleTextStyle,
         ),
       ),
@@ -66,6 +81,7 @@ class _NoteAddEditViewState extends State<NoteAddEditView> {
                     // Update successful, refresh selected note and notes list
                     context.read<NoteDetailsBloc>().add(NoteDetailsEvent.get(id: id));
                     context.read<NoteListBloc>().add(const NoteListEvent.getAll());
+                    _noteTextController.clear();
                     _noteFocusNode.unfocus();
                     Future.delayed(const Duration(milliseconds: 200)).then(
                       (value) => context.pop(),
@@ -111,9 +127,7 @@ class _NoteAddEditViewState extends State<NoteAddEditView> {
                             borderRadius: BorderRadius.circular(8),
                           ),
                           child: TextField(
-                            controller: _isEdit
-                                ? (_noteTextController..text = entity.note)
-                                : _noteTextController,
+                            controller: _noteTextController,
                             focusNode: _noteFocusNode,
                             keyboardType: TextInputType.multiline,
                             maxLines: null,
