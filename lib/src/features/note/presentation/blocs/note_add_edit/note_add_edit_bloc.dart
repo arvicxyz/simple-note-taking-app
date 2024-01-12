@@ -24,6 +24,7 @@ class NoteAddEditBloc extends Bloc<NoteAddEditEvent, NoteAddEditState> {
     on<_NoteAddEditEventGet>(_onNoteAddEditEventGet);
     on<_NoteAddEditEventAdd>(_onNoteAddEditEventAdd);
     on<_NoteAddEditEventUpdate>(_onNoteAddEditEventUpdate);
+    on<_NoteAddEditEventInvokeError>(_onNoteAddEditEventInvokeError);
   }
 
   Future<void> _onNoteAddEditEventGet(
@@ -64,12 +65,6 @@ class NoteAddEditBloc extends Bloc<NoteAddEditEvent, NoteAddEditState> {
     final state = this.state;
     if (state is _NoteAddEditStateIdle) {
       final entity = event.entity;
-
-      if (entity.note.isEmpty) {
-        emit(const NoteAddEditState.error(errorMessage: "You cannot save an empty note."));
-        emit(state);
-        return;
-      }
 
       // Use case
       final either = await _addNoteUseCase(entity);
@@ -115,5 +110,13 @@ class NoteAddEditBloc extends Bloc<NoteAddEditEvent, NoteAddEditState> {
         },
       );
     }
+  }
+
+  Future<void> _onNoteAddEditEventInvokeError(
+    _NoteAddEditEventInvokeError event,
+    Emitter<NoteAddEditState> emit,
+  ) async {
+    final errorMessage = event.errorMessage;
+    emit(NoteAddEditState.error(errorMessage: errorMessage));
   }
 }

@@ -14,4 +14,8 @@ class NoteAddEditEvent with _$NoteAddEditEvent {
     required String id,
     required NoteEntity entity,
   }) = _NoteAddEditEventUpdate;
+
+  const factory NoteAddEditEvent.invokeError({
+    required String errorMessage,
+  }) = _NoteAddEditEventInvokeError;
 }

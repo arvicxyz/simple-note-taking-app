@@ -6,10 +6,12 @@
     "addNote": "Add Note",
     "editNote": "Edit Note",
     "deleteNote": "Delete Note",
+    "writeYourNote": "Write your note...",
     "deleteNoteContent": "Are you sure you want to delete this note?",
     "yes": "Yes",
     "no": "No",
     "emptyNoteListText": "You have no notes available,\nclick the (+) button below to add one",
     "errorTitleOops": "Oops!",
-    "errorServerAccess": "An error occured during server access. Please try again or come back later."
+    "errorServerAccess": "An error occured during server access. Please try again or come back later.",
+    "errorEmptyNote": "You cannot save an empty note."
 }

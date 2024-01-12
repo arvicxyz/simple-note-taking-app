@@ -21,6 +21,7 @@ mixin _$NoteAddEditEvent {
     required TResult Function(String id) get,
     required TResult Function(NoteEntity entity) add,
     required TResult Function(String id, NoteEntity entity) update,
+    required TResult Function(String errorMessage) invokeError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -28,6 +29,7 @@ mixin _$NoteAddEditEvent {
     TResult? Function(String id)? get,
     TResult? Function(NoteEntity entity)? add,
     TResult? Function(String id, NoteEntity entity)? update,
+    TResult? Function(String errorMessage)? invokeError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,6 +37,7 @@ mixin _$NoteAddEditEvent {
     TResult Function(String id)? get,
     TResult Function(NoteEntity entity)? add,
     TResult Function(String id, NoteEntity entity)? update,
+    TResult Function(String errorMessage)? invokeError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -43,6 +46,7 @@ mixin _$NoteAddEditEvent {
     required TResult Function(_NoteAddEditEventGet value) get,
     required TResult Function(_NoteAddEditEventAdd value) add,
     required TResult Function(_NoteAddEditEventUpdate value) update,
+    required TResult Function(_NoteAddEditEventInvokeError value) invokeError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +54,7 @@ mixin _$NoteAddEditEvent {
     TResult? Function(_NoteAddEditEventGet value)? get,
     TResult? Function(_NoteAddEditEventAdd value)? add,
     TResult? Function(_NoteAddEditEventUpdate value)? update,
+    TResult? Function(_NoteAddEditEventInvokeError value)? invokeError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +62,7 @@ mixin _$NoteAddEditEvent {
     TResult Function(_NoteAddEditEventGet value)? get,
     TResult Function(_NoteAddEditEventAdd value)? add,
     TResult Function(_NoteAddEditEventUpdate value)? update,
+    TResult Function(_NoteAddEditEventInvokeError value)? invokeError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -148,6 +154,7 @@ class _$NoteAddEditEventGetImpl implements _NoteAddEditEventGet {
     required TResult Function(String id) get,
     required TResult Function(NoteEntity entity) add,
     required TResult Function(String id, NoteEntity entity) update,
+    required TResult Function(String errorMessage) invokeError,
   }) {
     return get(id);
   }
@@ -158,6 +165,7 @@ class _$NoteAddEditEventGetImpl implements _NoteAddEditEventGet {
     TResult? Function(String id)? get,
     TResult? Function(NoteEntity entity)? add,
     TResult? Function(String id, NoteEntity entity)? update,
+    TResult? Function(String errorMessage)? invokeError,
   }) {
     return get?.call(id);
   }
@@ -168,6 +176,7 @@ class _$NoteAddEditEventGetImpl implements _NoteAddEditEventGet {
     TResult Function(String id)? get,
     TResult Function(NoteEntity entity)? add,
     TResult Function(String id, NoteEntity entity)? update,
+    TResult Function(String errorMessage)? invokeError,
     required TResult orElse(),
   }) {
     if (get != null) {
@@ -182,6 +191,7 @@ class _$NoteAddEditEventGetImpl implements _NoteAddEditEventGet {
     required TResult Function(_NoteAddEditEventGet value) get,
     required TResult Function(_NoteAddEditEventAdd value) add,
     required TResult Function(_NoteAddEditEventUpdate value) update,
+    required TResult Function(_NoteAddEditEventInvokeError value) invokeError,
   }) {
     return get(this);
   }
@@ -192,6 +202,7 @@ class _$NoteAddEditEventGetImpl implements _NoteAddEditEventGet {
     TResult? Function(_NoteAddEditEventGet value)? get,
     TResult? Function(_NoteAddEditEventAdd value)? add,
     TResult? Function(_NoteAddEditEventUpdate value)? update,
+    TResult? Function(_NoteAddEditEventInvokeError value)? invokeError,
   }) {
     return get?.call(this);
   }
@@ -202,6 +213,7 @@ class _$NoteAddEditEventGetImpl implements _NoteAddEditEventGet {
     TResult Function(_NoteAddEditEventGet value)? get,
     TResult Function(_NoteAddEditEventAdd value)? add,
     TResult Function(_NoteAddEditEventUpdate value)? update,
+    TResult Function(_NoteAddEditEventInvokeError value)? invokeError,
     required TResult orElse(),
   }) {
     if (get != null) {
@@ -299,6 +311,7 @@ class _$NoteAddEditEventAddImpl implements _NoteAddEditEventAdd {
     required TResult Function(String id) get,
     required TResult Function(NoteEntity entity) add,
     required TResult Function(String id, NoteEntity entity) update,
+    required TResult Function(String errorMessage) invokeError,
   }) {
     return add(entity);
   }
@@ -309,6 +322,7 @@ class _$NoteAddEditEventAddImpl implements _NoteAddEditEventAdd {
     TResult? Function(String id)? get,
     TResult? Function(NoteEntity entity)? add,
     TResult? Function(String id, NoteEntity entity)? update,
+    TResult? Function(String errorMessage)? invokeError,
   }) {
     return add?.call(entity);
   }
@@ -319,6 +333,7 @@ class _$NoteAddEditEventAddImpl implements _NoteAddEditEventAdd {
     TResult Function(String id)? get,
     TResult Function(NoteEntity entity)? add,
     TResult Function(String id, NoteEntity entity)? update,
+    TResult Function(String errorMessage)? invokeError,
     required TResult orElse(),
   }) {
     if (add != null) {
@@ -333,6 +348,7 @@ class _$NoteAddEditEventAddImpl implements _NoteAddEditEventAdd {
     required TResult Function(_NoteAddEditEventGet value) get,
     required TResult Function(_NoteAddEditEventAdd value) add,
     required TResult Function(_NoteAddEditEventUpdate value) update,
+    required TResult Function(_NoteAddEditEventInvokeError value) invokeError,
   }) {
     return add(this);
   }
@@ -343,6 +359,7 @@ class _$NoteAddEditEventAddImpl implements _NoteAddEditEventAdd {
     TResult? Function(_NoteAddEditEventGet value)? get,
     TResult? Function(_NoteAddEditEventAdd value)? add,
     TResult? Function(_NoteAddEditEventUpdate value)? update,
+    TResult? Function(_NoteAddEditEventInvokeError value)? invokeError,
   }) {
     return add?.call(this);
   }
@@ -353,6 +370,7 @@ class _$NoteAddEditEventAddImpl implements _NoteAddEditEventAdd {
     TResult Function(_NoteAddEditEventGet value)? get,
     TResult Function(_NoteAddEditEventAdd value)? add,
     TResult Function(_NoteAddEditEventUpdate value)? update,
+    TResult Function(_NoteAddEditEventInvokeError value)? invokeError,
     required TResult orElse(),
   }) {
     if (add != null) {
@@ -460,6 +478,7 @@ class _$NoteAddEditEventUpdateImpl implements _NoteAddEditEventUpdate {
     required TResult Function(String id) get,
     required TResult Function(NoteEntity entity) add,
     required TResult Function(String id, NoteEntity entity) update,
+    required TResult Function(String errorMessage) invokeError,
   }) {
     return update(id, entity);
   }
@@ -470,6 +489,7 @@ class _$NoteAddEditEventUpdateImpl implements _NoteAddEditEventUpdate {
     TResult? Function(String id)? get,
     TResult? Function(NoteEntity entity)? add,
     TResult? Function(String id, NoteEntity entity)? update,
+    TResult? Function(String errorMessage)? invokeError,
   }) {
     return update?.call(id, entity);
   }
@@ -480,6 +500,7 @@ class _$NoteAddEditEventUpdateImpl implements _NoteAddEditEventUpdate {
     TResult Function(String id)? get,
     TResult Function(NoteEntity entity)? add,
     TResult Function(String id, NoteEntity entity)? update,
+    TResult Function(String errorMessage)? invokeError,
     required TResult orElse(),
   }) {
     if (update != null) {
@@ -494,6 +515,7 @@ class _$NoteAddEditEventUpdateImpl implements _NoteAddEditEventUpdate {
     required TResult Function(_NoteAddEditEventGet value) get,
     required TResult Function(_NoteAddEditEventAdd value) add,
     required TResult Function(_NoteAddEditEventUpdate value) update,
+    required TResult Function(_NoteAddEditEventInvokeError value) invokeError,
   }) {
     return update(this);
   }
@@ -504,6 +526,7 @@ class _$NoteAddEditEventUpdateImpl implements _NoteAddEditEventUpdate {
     TResult? Function(_NoteAddEditEventGet value)? get,
     TResult? Function(_NoteAddEditEventAdd value)? add,
     TResult? Function(_NoteAddEditEventUpdate value)? update,
+    TResult? Function(_NoteAddEditEventInvokeError value)? invokeError,
   }) {
     return update?.call(this);
   }
@@ -514,6 +537,7 @@ class _$NoteAddEditEventUpdateImpl implements _NoteAddEditEventUpdate {
     TResult Function(_NoteAddEditEventGet value)? get,
     TResult Function(_NoteAddEditEventAdd value)? add,
     TResult Function(_NoteAddEditEventUpdate value)? update,
+    TResult Function(_NoteAddEditEventInvokeError value)? invokeError,
     required TResult orElse(),
   }) {
     if (update != null) {
@@ -532,6 +556,158 @@ abstract class _NoteAddEditEventUpdate implements NoteAddEditEvent {
   NoteEntity get entity;
   @JsonKey(ignore: true)
   _$$NoteAddEditEventUpdateImplCopyWith<_$NoteAddEditEventUpdateImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$NoteAddEditEventInvokeErrorImplCopyWith<$Res> {
+  factory _$$NoteAddEditEventInvokeErrorImplCopyWith(
+          _$NoteAddEditEventInvokeErrorImpl value,
+          $Res Function(_$NoteAddEditEventInvokeErrorImpl) then) =
+      __$$NoteAddEditEventInvokeErrorImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String errorMessage});
+}
+
+/// @nodoc
+class __$$NoteAddEditEventInvokeErrorImplCopyWithImpl<$Res>
+    extends _$NoteAddEditEventCopyWithImpl<$Res,
+        _$NoteAddEditEventInvokeErrorImpl>
+    implements _$$NoteAddEditEventInvokeErrorImplCopyWith<$Res> {
+  __$$NoteAddEditEventInvokeErrorImplCopyWithImpl(
+      _$NoteAddEditEventInvokeErrorImpl _value,
+      $Res Function(_$NoteAddEditEventInvokeErrorImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? errorMessage = null,
+  }) {
+    return _then(_$NoteAddEditEventInvokeErrorImpl(
+      errorMessage: null == errorMessage
+          ? _value.errorMessage
+          : errorMessage // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$NoteAddEditEventInvokeErrorImpl
+    implements _NoteAddEditEventInvokeError {
+  const _$NoteAddEditEventInvokeErrorImpl({required this.errorMessage});
+
+  @override
+  final String errorMessage;
+
+  @override
+  String toString() {
+    return 'NoteAddEditEvent.invokeError(errorMessage: $errorMessage)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$NoteAddEditEventInvokeErrorImpl &&
+            (identical(other.errorMessage, errorMessage) ||
+                other.errorMessage == errorMessage));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, errorMessage);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$NoteAddEditEventInvokeErrorImplCopyWith<_$NoteAddEditEventInvokeErrorImpl>
+      get copyWith => __$$NoteAddEditEventInvokeErrorImplCopyWithImpl<
+          _$NoteAddEditEventInvokeErrorImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String id) get,
+    required TResult Function(NoteEntity entity) add,
+    required TResult Function(String id, NoteEntity entity) update,
+    required TResult Function(String errorMessage) invokeError,
+  }) {
+    return invokeError(errorMessage);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String id)? get,
+    TResult? Function(NoteEntity entity)? add,
+    TResult? Function(String id, NoteEntity entity)? update,
+    TResult? Function(String errorMessage)? invokeError,
+  }) {
+    return invokeError?.call(errorMessage);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String id)? get,
+    TResult Function(NoteEntity entity)? add,
+    TResult Function(String id, NoteEntity entity)? update,
+    TResult Function(String errorMessage)? invokeError,
+    required TResult orElse(),
+  }) {
+    if (invokeError != null) {
+      return invokeError(errorMessage);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_NoteAddEditEventGet value) get,
+    required TResult Function(_NoteAddEditEventAdd value) add,
+    required TResult Function(_NoteAddEditEventUpdate value) update,
+    required TResult Function(_NoteAddEditEventInvokeError value) invokeError,
+  }) {
+    return invokeError(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_NoteAddEditEventGet value)? get,
+    TResult? Function(_NoteAddEditEventAdd value)? add,
+    TResult? Function(_NoteAddEditEventUpdate value)? update,
+    TResult? Function(_NoteAddEditEventInvokeError value)? invokeError,
+  }) {
+    return invokeError?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_NoteAddEditEventGet value)? get,
+    TResult Function(_NoteAddEditEventAdd value)? add,
+    TResult Function(_NoteAddEditEventUpdate value)? update,
+    TResult Function(_NoteAddEditEventInvokeError value)? invokeError,
+    required TResult orElse(),
+  }) {
+    if (invokeError != null) {
+      return invokeError(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _NoteAddEditEventInvokeError implements NoteAddEditEvent {
+  const factory _NoteAddEditEventInvokeError(
+      {required final String errorMessage}) = _$NoteAddEditEventInvokeErrorImpl;
+
+  String get errorMessage;
+  @JsonKey(ignore: true)
+  _$$NoteAddEditEventInvokeErrorImplCopyWith<_$NoteAddEditEventInvokeErrorImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 

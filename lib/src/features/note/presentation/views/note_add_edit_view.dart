@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:simple_note_taking_app/src/features/note/domain/entities/note_entity.dart';
 
 import '../../../../localization/_localization.dart';
 import '../../../../resources/_resources.dart';
 import '../../../app/app.dart';
+import '../../domain/_domain.dart';
 import '../blocs/_blocs.dart';
 
 class NoteAddEditView extends StatefulWidget {
@@ -133,8 +133,8 @@ class _NoteAddEditViewState extends State<NoteAddEditView> {
                             textAlign: TextAlign.center,
                             textAlignVertical: TextAlignVertical.center,
                             style: AppStyles.noteAddEditTextStyle,
-                            decoration: const InputDecoration(
-                              hintText: "Write your note...",
+                            decoration: InputDecoration(
+                              hintText: AppLocale.of(context).writeYourNote,
                               hintStyle: AppStyles.noteAddEditHintTextStyle,
                               border: InputBorder.none,
                             ),
@@ -166,9 +166,19 @@ class _NoteAddEditViewState extends State<NoteAddEditView> {
                   width: double.infinity,
                   child: ElevatedButton(
                     onPressed: () {
+                      final bloc = context.read<NoteAddEditBloc>();
                       final note = _noteTextController.text.trim();
+                      // Validation should be in views or widgets
+                      // Adding validation
+                      if (note.isEmpty) {
+                        bloc.add(
+                          NoteAddEditEvent.invokeError(
+                            errorMessage: AppLocale.of(context).errorEmptyNote,
+                          ),
+                        );
+                        return;
+                      }
                       if (_isEdit) {
-                        final bloc = context.read<NoteAddEditBloc>();
                         bloc.add(
                           NoteAddEditEvent.update(
                             id: _id,
@@ -181,7 +191,6 @@ class _NoteAddEditViewState extends State<NoteAddEditView> {
                           ),
                         );
                       } else {
-                        final bloc = context.read<NoteAddEditBloc>();
                         bloc.add(
                           NoteAddEditEvent.add(
                             entity: NoteEntity.empty().copyWith(

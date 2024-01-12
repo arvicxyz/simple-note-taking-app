@@ -1,15 +1,17 @@
 {
     "appTitle": "Notter",
-    "save": "Save",
-    "edit": "Edit",
-    "delete": "Delete",
-    "addNote": "Add Note",
-    "editNote": "Edit Note",
-    "deleteNote": "Delete Note",
-    "deleteNoteContent": "Are you sure you want to delete this note?",
-    "yes": "Yes",
+    "save": "Ahorrar",
+    "edit": "Editar",
+    "delete": "Borrar",
+    "addNote": "Añadir la nota",
+    "editNote": "Editar nota",
+    "deleteNote": "Borrar nota",
+    "writeYourNote": "Escribe tu nota...",
+    "deleteNoteContent": "¿Estás seguro que quieres eliminar esta nota?",
+    "yes": "Sí",
     "no": "No",
-    "emptyNoteListText": "You have no notes available,\nclick the (+) button below to add one",
+    "emptyNoteListText": "No tienes notas disponibles,\nhaga clic en el botón (+) a continuación para agregar uno",
     "errorTitleOops": "Oops!",
-    "errorServerAccess": "An error occured during server access. Please try again or come back later."
+    "errorServerAccess": "Se produjo un error durante el acceso al servidor.",
+    "errorEmptyNote": "No puedes guardar una nota vacía."
 }
