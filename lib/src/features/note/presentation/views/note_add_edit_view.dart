@@ -42,7 +42,6 @@ class _NoteAddEditViewState extends State<NoteAddEditView> {
         },
       );
     } else {
-      _noteTextController.clear();
       _noteFocusNode.requestFocus();
     }
   }
@@ -108,7 +107,7 @@ class _NoteAddEditViewState extends State<NoteAddEditView> {
                 children: [
                   state.maybeWhen(
                     idle: (entity) {
-                      _noteTextController.text = entity.note;
+                      _noteTextController.text = _isEdit ? entity.note : "";
                       return SingleChildScrollView(
                         physics: const AlwaysScrollableScrollPhysics(),
                         child: Container(
