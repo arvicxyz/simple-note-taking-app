@@ -26,8 +26,10 @@ class _NoteDetailsViewState extends State<NoteDetailsView> {
   @override
   void initState() {
     super.initState();
-    _id = widget.noteId ?? "0";
-    context.read<NoteDetailsBloc>().add(NoteDetailsEvent.get(id: _id));
+    if (widget.noteId != null) {
+      _id = widget.noteId!;
+      context.read<NoteDetailsBloc>().add(NoteDetailsEvent.get(id: _id));
+    }
   }
 
   @override

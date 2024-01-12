@@ -42,6 +42,7 @@ class _NoteAddEditViewState extends State<NoteAddEditView> {
         },
       );
     } else {
+      _noteTextController.clear();
       _noteFocusNode.requestFocus();
     }
   }
@@ -79,8 +80,6 @@ class _NoteAddEditViewState extends State<NoteAddEditView> {
                     // Update successful, refresh selected note and notes list
                     context.read<NoteDetailsBloc>().add(NoteDetailsEvent.get(id: id));
                     context.read<NoteListBloc>().add(const NoteListEvent.getAll());
-                    _noteTextController.clear();
-                    _noteFocusNode.unfocus();
                     Future.delayed(const Duration(milliseconds: 200)).then(
                       (value) => context.pop(),
                     );
@@ -109,6 +108,7 @@ class _NoteAddEditViewState extends State<NoteAddEditView> {
                 children: [
                   state.maybeWhen(
                     idle: (entity) {
+                      _noteTextController.text = entity.note;
                       return SingleChildScrollView(
                         physics: const AlwaysScrollableScrollPhysics(),
                         child: Container(
@@ -168,8 +168,6 @@ class _NoteAddEditViewState extends State<NoteAddEditView> {
                     onPressed: () {
                       final bloc = context.read<NoteAddEditBloc>();
                       final note = _noteTextController.text.trim();
-                      // Validation should be in views or widgets
-                      // Adding validation
                       if (note.isEmpty) {
                         bloc.add(
                           NoteAddEditEvent.invokeError(
@@ -179,6 +177,7 @@ class _NoteAddEditViewState extends State<NoteAddEditView> {
                         return;
                       }
                       if (_isEdit) {
+                        _resetTextFields();
                         bloc.add(
                           NoteAddEditEvent.update(
                             id: _id,
@@ -191,6 +190,7 @@ class _NoteAddEditViewState extends State<NoteAddEditView> {
                           ),
                         );
                       } else {
+                        _resetTextFields();
                         bloc.add(
                           NoteAddEditEvent.add(
                             entity: NoteEntity.empty().copyWith(
@@ -213,5 +213,10 @@ class _NoteAddEditViewState extends State<NoteAddEditView> {
         },
       ),
     );
+  }
+
+  void _resetTextFields() {
+    _noteTextController.clear();
+    _noteFocusNode.unfocus();
   }
 }

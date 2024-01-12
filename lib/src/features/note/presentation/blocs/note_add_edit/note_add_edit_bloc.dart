@@ -50,7 +50,7 @@ class NoteAddEditBloc extends Bloc<NoteAddEditEvent, NoteAddEditState> {
           AppLogger.logInfo(data);
 
           emit(NoteAddEditState.success(event: event));
-          emit(NoteAddEditState.idle(entity: data));
+          emit(state.copyWith(entity: data));
         },
       );
     }
