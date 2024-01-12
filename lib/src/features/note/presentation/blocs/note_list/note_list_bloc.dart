@@ -20,7 +20,7 @@ class NoteListBloc extends Bloc<NoteListEvent, NoteListState> {
   NoteListBloc(
     this._getAllNoteUseCase,
     this._deleteNoteUseCase,
-  ) : super(const _NoteListStateLoading()) {
+  ) : super(_NoteListStateIdle(entityList: List.empty())) {
     on<_NoteListEventGetAll>(_onNoteListEventGetAll);
     on<_NoteListEventDelete>(_onNoteListEventDelete);
   }
@@ -32,7 +32,9 @@ class NoteListBloc extends Bloc<NoteListEvent, NoteListState> {
     AppLogger.logInfo('_onNoteListEventGetAll is invoked');
 
     final state = this.state;
-    if (state is _NoteListStateLoading) {
+    if (state is _NoteListStateIdle) {
+      emit(const NoteListState.loading());
+
       // Use case
       final either = await _getAllNoteUseCase();
       either.fold(
@@ -42,7 +44,7 @@ class NoteListBloc extends Bloc<NoteListEvent, NoteListState> {
         },
         (data) {
           AppLogger.logInfo(data);
-          _entityList = data;
+          _entityList = data.reversed.toList();
 
           emit(const NoteListState.success());
           emit(NoteListState.idle(entityList: _entityList));

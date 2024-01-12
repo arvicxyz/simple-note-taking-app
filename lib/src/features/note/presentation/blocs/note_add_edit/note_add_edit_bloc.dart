@@ -65,6 +65,12 @@ class NoteAddEditBloc extends Bloc<NoteAddEditEvent, NoteAddEditState> {
     if (state is _NoteAddEditStateIdle) {
       final entity = event.entity;
 
+      if (entity.note.isEmpty) {
+        emit(const NoteAddEditState.error(errorMessage: "You cannot save an empty note."));
+        emit(state);
+        return;
+      }
+
       // Use case
       final either = await _addNoteUseCase(entity);
       either.fold(

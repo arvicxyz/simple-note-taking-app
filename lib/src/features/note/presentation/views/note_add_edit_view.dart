@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:simple_note_taking_app/src/features/note/domain/entities/note_entity.dart';
 
 import '../../../../localization/_localization.dart';
@@ -51,7 +52,12 @@ class _NoteAddEditViewState extends State<NoteAddEditView> {
         child: BlocConsumer<NoteAddEditBloc, NoteAddEditState>(
           listener: (context, state) {
             state.whenOrNull(
-              success: () {},
+              success: () {
+                // Add successful, then refresh notes list
+                context.read<NoteListBloc>().add(const NoteListEvent.getAll());
+                _noteFocusNode.unfocus();
+                Future.delayed(const Duration(milliseconds: 200)).then((value) => context.pop());
+              },
               error: (errorMessage) {
                 var message = AppLocale.of(context).errorServerAccess;
                 if (errorMessage.isNotEmpty) {
@@ -128,6 +134,7 @@ class _NoteAddEditViewState extends State<NoteAddEditView> {
           width: double.infinity,
           child: ElevatedButton(
             onPressed: () {
+              final note = _noteTextController.text.trim();
               if (_isEdit) {
                 final bloc = context.read<NoteAddEditBloc>();
                 bloc.add(
@@ -135,7 +142,7 @@ class _NoteAddEditViewState extends State<NoteAddEditView> {
                     id: _id,
                     entity: bloc.state.maybeWhen(
                       idle: (entity) => entity.copyWith(
-                        note: _noteTextController.text.trim(),
+                        note: note,
                       ),
                       orElse: () => NoteEntity.empty(),
                     ),
@@ -147,7 +154,7 @@ class _NoteAddEditViewState extends State<NoteAddEditView> {
                   NoteAddEditEvent.add(
                     entity: NoteEntity(
                       id: 0,
-                      note: _noteTextController.text.trim(),
+                      note: note,
                       completed: false,
                       userId: 0,
                     ),

@@ -8,19 +8,8 @@ import '../../../../resources/_resources.dart';
 import '../../../app/app.dart';
 import '../blocs/_blocs.dart';
 
-class NoteListView extends StatefulWidget {
+class NoteListView extends StatelessWidget {
   const NoteListView({super.key});
-
-  @override
-  State<NoteListView> createState() => _NoteListViewState();
-}
-
-class _NoteListViewState extends State<NoteListView> {
-  @override
-  void initState() {
-    super.initState();
-    
-  }
 
   @override
   Widget build(BuildContext context) {
