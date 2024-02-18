@@ -3,9 +3,9 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:simple_note_taking_app/src/features/note/note.dart';
 
 import 'src/config/_config.dart';
+import 'src/features/_features.dart';
 import 'src/localization/_localization.dart';
 
 Future<void> main() async {
@@ -35,6 +35,7 @@ Future<AppFlavor> setupFlavorConfig() async {
   // TODO: Change when publishing to production
   const defaultEnv = 'dev';
   const flavor = defaultEnv;
+  // TODO Implement flavors first, then uncomment this
   //final flavor = await const MethodChannel('flavor').invokeMethod('getFlavor') ?? defaultEnv;
 
   switch (flavor) {

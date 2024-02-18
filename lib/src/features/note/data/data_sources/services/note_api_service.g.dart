@@ -20,10 +20,10 @@ class _NoteApiServiceImpl implements NoteApiServiceImpl {
 
   @override
   Future<NoteListModel?> getAllNote() async {
-    const _extra = <String, dynamic>{};
+    final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    final Map<String, dynamic>? _data = null;
+    const Map<String, dynamic>? _data = null;
     final _result = await _dio
         .fetch<Map<String, dynamic>?>(_setStreamType<NoteListModel>(Options(
       method: 'GET',
@@ -48,10 +48,10 @@ class _NoteApiServiceImpl implements NoteApiServiceImpl {
 
   @override
   Future<NoteModel?> getNote({required int id}) async {
-    const _extra = <String, dynamic>{};
+    final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    final Map<String, dynamic>? _data = null;
+    const Map<String, dynamic>? _data = null;
     final _result = await _dio
         .fetch<Map<String, dynamic>?>(_setStreamType<NoteModel>(Options(
       method: 'GET',
@@ -76,7 +76,7 @@ class _NoteApiServiceImpl implements NoteApiServiceImpl {
 
   @override
   Future<NoteModel?> addNote({required NoteAddRequestModel model}) async {
-    const _extra = <String, dynamic>{};
+    final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{r'Content-Type': 'application/json'};
     _headers.removeWhere((k, v) => v == null);
@@ -110,7 +110,7 @@ class _NoteApiServiceImpl implements NoteApiServiceImpl {
     required int id,
     required NoteUpdateRequestModel model,
   }) async {
-    const _extra = <String, dynamic>{};
+    final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{r'Content-Type': 'application/json'};
     _headers.removeWhere((k, v) => v == null);
@@ -141,10 +141,10 @@ class _NoteApiServiceImpl implements NoteApiServiceImpl {
 
   @override
   Future<NoteModel?> deleteNote({required int id}) async {
-    const _extra = <String, dynamic>{};
+    final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    final Map<String, dynamic>? _data = null;
+    const Map<String, dynamic>? _data = null;
     final _result = await _dio
         .fetch<Map<String, dynamic>?>(_setStreamType<NoteModel>(Options(
       method: 'DELETE',

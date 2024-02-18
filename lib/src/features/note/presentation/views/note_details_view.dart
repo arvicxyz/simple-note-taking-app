@@ -38,6 +38,7 @@ class _NoteDetailsViewState extends State<NoteDetailsView> {
       appBar: const MaterialAppBar(),
       body: SafeArea(
         child: BlocConsumer<NoteDetailsBloc, NoteDetailsState>(
+          // Listener
           listener: (context, state) {
             state.whenOrNull(
               success: (event) {
@@ -61,6 +62,7 @@ class _NoteDetailsViewState extends State<NoteDetailsView> {
               },
             );
           },
+          // Builder
           builder: (context, state) {
             return AbsorbPointer(
               absorbing: state.maybeWhen(

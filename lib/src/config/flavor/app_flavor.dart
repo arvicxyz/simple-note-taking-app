@@ -7,6 +7,7 @@ class AppFlavor {
   final String baseUrl;
   final String apiKey;
 
+  // TODO: Better read from a json file where all secret keys are located
   const AppFlavor.dev()
       : flavor = Flavor.dev,
         baseUrl = "https://dummyjson.com",

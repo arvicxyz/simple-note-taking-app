@@ -25,7 +25,7 @@ class _NoteRepositoryImpl implements NoteRepositoryImpl {
   final NoteRemoteSource remoteSource;
   final NetworkInfo networkInfo;
 
-  // TODO: Remove when API is fixed, due to mismatch on API data types
+  // TODO: ONLY LOCAL SOURCE USED - Remove when API is fixed, due to mismatch on API data types
   final bool _enableApi = false;
 
   const _NoteRepositoryImpl({

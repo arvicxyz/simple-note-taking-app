@@ -63,6 +63,7 @@ class _NoteAddEditViewState extends State<NoteAddEditView> {
       ),
       body: SafeArea(
         child: BlocConsumer<NoteAddEditBloc, NoteAddEditState>(
+          // Listener
           listener: (context, state) {
             state.whenOrNull(
               success: (event) {
@@ -96,6 +97,7 @@ class _NoteAddEditViewState extends State<NoteAddEditView> {
               },
             );
           },
+          // Builder
           builder: (context, state) {
             return AbsorbPointer(
               absorbing: state.maybeWhen(

@@ -23,6 +23,7 @@ class NoteListView extends StatelessWidget {
       ),
       body: SafeArea(
         child: BlocConsumer<NoteListBloc, NoteListState>(
+          // Listener
           listener: (context, state) {
             state.whenOrNull(
               success: (event) {
@@ -44,6 +45,7 @@ class NoteListView extends StatelessWidget {
               },
             );
           },
+          // Builder
           builder: (context, state) {
             return AbsorbPointer(
               absorbing: state.maybeWhen(
