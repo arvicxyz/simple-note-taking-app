@@ -1,4 +1,4 @@
-package com.redhalfstudios.simple_note_taking_app
+package com.redhalfstudios.notter
 
 import io.flutter.embedding.android.FlutterActivity
 
