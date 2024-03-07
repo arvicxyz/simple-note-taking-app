@@ -45,6 +45,7 @@ dev_dependencies:
   json_serializable: ^6.7.1
   injectable_generator: ^2.4.1
   retrofit_generator: ^8.0.6
+  flutter_launcher_icons: ^0.13.1
 
 flutter:
   uses-material-design: true
@@ -72,6 +73,14 @@ flutter:
           weight: 700
         - asset: assets/fonts/Manrope/Manrope-ExtraBold.ttf
           weight: 800
+
+flutter_launcher_icons:
+  ios: true
+  android: true
+  min_sdk_android: 21
+  image_path: assets/images/app_icon.png
+  adaptive_icon_foreground: assets/images/app_icon_foreground.png
+  adaptive_icon_background: #FFFFFFFF
 
 flutter_gen:
   output: lib/src/resources
